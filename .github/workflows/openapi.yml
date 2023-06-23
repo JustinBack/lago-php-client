@@ -34,9 +34,14 @@ jobs:
           openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${RELEASE_VERSION}/openapi.yaml
           command-args: "--additional-properties=invokerPackage=Lago\\Client -o ."
           
+      - name: Auto-Heal composer.json
+        uses: sergeysova/jq-action@v2
+        with:
+          cmd: |
+            jq ".name = \"${GITHUB_REPOSITORY}\"" composer.json > composer.json.tmp
+            mv composer.json.tmp composer.json
+          
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
           fetch: false
-          message: 'Update Lago PHP CLient ${{ steps.vars.outputs.tag }}'
-          tag: "${{ steps.extract_branch.outputs.branch }}"
-          tag_push: '--force'
+          message: "Update Lago PHP CLient ${{ steps.vars.outputs.tag }}"
