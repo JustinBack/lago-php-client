@@ -13,25 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate OpenAPI PHP Client
     steps:
-
-      # Checkout your code
       - name: Checkout
         uses: actions/checkout@v2
-
-      # Generate your OpenAPI document (if you don't write it manually)
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-        id: extract_branch
       
       - name: Generate Lago PHP Client
-        env:
-          RELEASE_VERSION: ${{ steps.extract_branch.outputs.branch }}
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
-          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${RELEASE_VERSION}/openapi.yaml
+          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${GITHUB_REF_SLUG}/openapi.yaml
           command-args: "--additional-properties=invokerPackage=Lago\\Client -o ."
           
       - name: Auto-Heal composer.json
@@ -44,5 +33,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
           fetch: false
-          message: "Update Lago PHP CLient ${{ steps.extract_branch.outputs.branch }}"
-          tag: " ${{ steps.extract_branch.outputs.branch }} --force"
+          message: "Update Lago PHP CLient ${GITHUB_REF_SLUG}"
+          tag: "${GITHUB_REF_SLUG} --force"
+          tag_push: '--force'
