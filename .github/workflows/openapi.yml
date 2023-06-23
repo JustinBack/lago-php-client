@@ -31,5 +31,4 @@ jobs:
         with:
           generator: php
           openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${RELEASE_VERSION}/openapi.yaml
-          command-args:
-            - "--additional-properties=invokerPackage=Lago\Client"
+          command-args: "--additional-properties=invokerPackage=Lago\\Client"
