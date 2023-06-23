@@ -30,6 +30,12 @@ jobs:
             jq ".name = \"$(echo ${GITHUB_REPOSITORY} | tr '[:upper:]' '[:lower:]')\"" composer.json > composer.json.tmp
             mv composer.json.tmp composer.json
           
+      - name: "Install dependencies"
+        uses: php-actions/composer@v6
+        
+      - name: Run tests
+        run: vendor/bin/phpunit
+      
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
           fetch: false
