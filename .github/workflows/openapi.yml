@@ -2,16 +2,16 @@ name: Build OpenAPI Lago Client
 
 on:
   push:
-    tags:
+    branches:
       - 'v*.*.*'
   pull_request:
-    tags:
+    branches:
       - 'v*.*.*'
 
 jobs:
   generate-php-client:
     runs-on: ubuntu-latest
-    name: Example
+    name: Generate OpenAPI PHP Client
     steps:
 
       # Checkout your code
@@ -20,13 +20,14 @@ jobs:
 
       # Generate your OpenAPI document (if you don't write it manually)
 
-      - name: Set output
-        id: vars
-        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
       
       - name: Generate Lago PHP Client
         env:
-          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+          RELEASE_VERSION: ${{ steps.extract_branch.outputs.branch }}
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
@@ -37,6 +38,5 @@ jobs:
         with:
           fetch: false
           message: 'Update Lago PHP CLient ${{ steps.vars.outputs.tag }}'
-          new_branch: "${{ steps.vars.outputs.tag }}"
-          tag: "${{ steps.vars.outputs.tag }}"
+          tag: "${{ steps.extract_branch.outputs.branch }}"
           tag_push: '--force'
