@@ -20,7 +20,7 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
-          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${GITHUB_REF_SLUG}/openapi.yaml
+          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${{github.ref_name}}/openapi.yaml
           command-args: "--additional-properties=invokerPackage=Lago\\Client -o ."
           
       - name: Auto-Heal composer.json
@@ -33,6 +33,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
           fetch: false
-          message: "Update Lago PHP CLient ${GITHUB_REF_SLUG}"
-          tag: "${GITHUB_REF_SLUG} --force"
+          message: "Update Lago PHP CLient ${{github.ref_name}}"
+          tag: "${{github.ref_name}} --force"
           tag_push: '--force'
