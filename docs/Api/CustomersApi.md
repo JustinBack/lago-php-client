@@ -1,4 +1,4 @@
-# OpenAPI\Client\CustomersApi
+# LagoClient\CustomersApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -16,7 +16,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `createCustomer()`
 
 ```php
-createCustomer($customer_input): \OpenAPI\Client\Model\Customer
+createCustomer($customer_input): \LagoClient\Model\Customer
 ```
 
 Create a customer
@@ -31,16 +31,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$customer_input = new \OpenAPI\Client\Model\CustomerInput(); // \OpenAPI\Client\Model\CustomerInput | Customer payload
+$customer_input = new \LagoClient\Model\CustomerInput(); // \LagoClient\Model\CustomerInput | Customer payload
 
 try {
     $result = $apiInstance->createCustomer($customer_input);
@@ -54,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_input** | [**\OpenAPI\Client\Model\CustomerInput**](../Model/CustomerInput.md)| Customer payload | |
+| **customer_input** | [**\LagoClient\Model\CustomerInput**](../Model/CustomerInput.md)| Customer payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Customer**](../Model/Customer.md)
+[**\LagoClient\Model\Customer**](../Model/Customer.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `deleteAppliedCoupon()`
 
 ```php
-deleteAppliedCoupon($customer_external_id, $applied_coupon_id): \OpenAPI\Client\Model\AppliedCoupon
+deleteAppliedCoupon($customer_external_id, $applied_coupon_id): \LagoClient\Model\AppliedCoupon
 ```
 
 Delete customer's appplied coupon
@@ -91,10 +91,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -120,7 +120,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AppliedCoupon**](../Model/AppliedCoupon.md)
+[**\LagoClient\Model\AppliedCoupon**](../Model/AppliedCoupon.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ try {
 ## `destroyCustomer()`
 
 ```php
-destroyCustomer($external_id): \OpenAPI\Client\Model\Customer
+destroyCustomer($external_id): \LagoClient\Model\Customer
 ```
 
 Delete a customer
@@ -153,10 +153,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -180,7 +180,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Customer**](../Model/Customer.md)
+[**\LagoClient\Model\Customer**](../Model/Customer.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ try {
 ## `findAllCustomers()`
 
 ```php
-findAllCustomers($page, $per_page): \OpenAPI\Client\Model\CustomersPaginated
+findAllCustomers($page, $per_page): \LagoClient\Model\CustomersPaginated
 ```
 
 Find customers
@@ -213,10 +213,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -242,7 +242,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomersPaginated**](../Model/CustomersPaginated.md)
+[**\LagoClient\Model\CustomersPaginated**](../Model/CustomersPaginated.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ try {
 ## `findCustomer()`
 
 ```php
-findCustomer($external_id): \OpenAPI\Client\Model\Customer
+findCustomer($external_id): \LagoClient\Model\Customer
 ```
 
 Find customer by external ID
@@ -275,10 +275,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -302,7 +302,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Customer**](../Model/Customer.md)
+[**\LagoClient\Model\Customer**](../Model/Customer.md)
 
 ### Authorization
 
@@ -320,7 +320,7 @@ try {
 ## `findCustomerCurrentUsage()`
 
 ```php
-findCustomerCurrentUsage($customer_external_id, $external_subscription_id): \OpenAPI\Client\Model\CustomerUsage
+findCustomerCurrentUsage($customer_external_id, $external_subscription_id): \LagoClient\Model\CustomerUsage
 ```
 
 Find customer current usage
@@ -335,10 +335,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -364,7 +364,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerUsage**](../Model/CustomerUsage.md)
+[**\LagoClient\Model\CustomerUsage**](../Model/CustomerUsage.md)
 
 ### Authorization
 
@@ -382,7 +382,7 @@ try {
 ## `getCustomerPortalUrl()`
 
 ```php
-getCustomerPortalUrl($customer_external_id): \OpenAPI\Client\Model\GetCustomerPortalUrl200Response
+getCustomerPortalUrl($customer_external_id): \LagoClient\Model\GetCustomerPortalUrl200Response
 ```
 
 Get customer portal URL
@@ -397,10 +397,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new LagoClient\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -424,7 +424,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetCustomerPortalUrl200Response**](../Model/GetCustomerPortalUrl200Response.md)
+[**\LagoClient\Model\GetCustomerPortalUrl200Response**](../Model/GetCustomerPortalUrl200Response.md)
 
 ### Authorization
 

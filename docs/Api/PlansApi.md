@@ -1,4 +1,4 @@
-# OpenAPI\Client\PlansApi
+# LagoClient\PlansApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `createPlan()`
 
 ```php
-createPlan($plan_input): \OpenAPI\Client\Model\Plan
+createPlan($plan_input): \LagoClient\Model\Plan
 ```
 
 Create a new plan
@@ -29,16 +29,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlansApi(
+$apiInstance = new LagoClient\Api\PlansApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$plan_input = new \OpenAPI\Client\Model\PlanInput(); // \OpenAPI\Client\Model\PlanInput | Plan payload
+$plan_input = new \LagoClient\Model\PlanInput(); // \LagoClient\Model\PlanInput | Plan payload
 
 try {
     $result = $apiInstance->createPlan($plan_input);
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **plan_input** | [**\OpenAPI\Client\Model\PlanInput**](../Model/PlanInput.md)| Plan payload | |
+| **plan_input** | [**\LagoClient\Model\PlanInput**](../Model/PlanInput.md)| Plan payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Plan**](../Model/Plan.md)
+[**\LagoClient\Model\Plan**](../Model/Plan.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `destroyPlan()`
 
 ```php
-destroyPlan($code): \OpenAPI\Client\Model\Plan
+destroyPlan($code): \LagoClient\Model\Plan
 ```
 
 Delete a plan
@@ -89,10 +89,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlansApi(
+$apiInstance = new LagoClient\Api\PlansApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -116,7 +116,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Plan**](../Model/Plan.md)
+[**\LagoClient\Model\Plan**](../Model/Plan.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ try {
 ## `findAllPlans()`
 
 ```php
-findAllPlans($page, $per_page): \OpenAPI\Client\Model\PlansPaginated
+findAllPlans($page, $per_page): \LagoClient\Model\PlansPaginated
 ```
 
 Find plans
@@ -149,10 +149,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlansApi(
+$apiInstance = new LagoClient\Api\PlansApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -178,7 +178,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PlansPaginated**](../Model/PlansPaginated.md)
+[**\LagoClient\Model\PlansPaginated**](../Model/PlansPaginated.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ try {
 ## `findPlan()`
 
 ```php
-findPlan($code): \OpenAPI\Client\Model\Plan
+findPlan($code): \LagoClient\Model\Plan
 ```
 
 Find plan by code
@@ -211,10 +211,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlansApi(
+$apiInstance = new LagoClient\Api\PlansApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -238,7 +238,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Plan**](../Model/Plan.md)
+[**\LagoClient\Model\Plan**](../Model/Plan.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ try {
 ## `updatePlan()`
 
 ```php
-updatePlan($code, $plan_input): \OpenAPI\Client\Model\Plan
+updatePlan($code, $plan_input): \LagoClient\Model\Plan
 ```
 
 Update an existing plan
@@ -271,17 +271,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlansApi(
+$apiInstance = new LagoClient\Api\PlansApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $code = example_code; // string | Code of the existing plan
-$plan_input = new \OpenAPI\Client\Model\PlanInput(); // \OpenAPI\Client\Model\PlanInput | Update an existing plan
+$plan_input = new \LagoClient\Model\PlanInput(); // \LagoClient\Model\PlanInput | Update an existing plan
 
 try {
     $result = $apiInstance->updatePlan($code, $plan_input);
@@ -296,11 +296,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of the existing plan | |
-| **plan_input** | [**\OpenAPI\Client\Model\PlanInput**](../Model/PlanInput.md)| Update an existing plan | |
+| **plan_input** | [**\LagoClient\Model\PlanInput**](../Model/PlanInput.md)| Update an existing plan | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Plan**](../Model/Plan.md)
+[**\LagoClient\Model\Plan**](../Model/Plan.md)
 
 ### Authorization
 

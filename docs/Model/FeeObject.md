@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **total_amount_cents** | **int** |  | [optional]
 **total_amount_currency** | **string** |  | [optional]
 **events_count** | **int** |  | [optional]
+**pay_in_advance** | **bool** |  | [optional]
+**invoiceable** | **bool** |  | [optional]
 **from_date** | **\DateTime** |  | [optional]
 **to_date** | **\DateTime** |  | [optional]
 **payment_status** | **string** |  |
@@ -25,6 +27,6 @@ Name | Type | Description | Notes
 **succeeded_at** | **\DateTime** |  | [optional]
 **failed_at** | **\DateTime** |  | [optional]
 **refunded_at** | **\DateTime** |  | [optional]
-**item** | [**\OpenAPI\Client\Model\FeeObjectItem**](FeeObjectItem.md) |  |
+**item** | [**\LagoClient\Model\FeeObjectItem**](FeeObjectItem.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

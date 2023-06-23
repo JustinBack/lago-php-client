@@ -1,4 +1,4 @@
-# OpenAPI\Client\AddOnsApi
+# LagoClient\AddOnsApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -15,7 +15,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `applyAddOn()`
 
 ```php
-applyAddOn($applied_add_on_input): \OpenAPI\Client\Model\AppliedAddOn
+applyAddOn($applied_add_on_input): \LagoClient\Model\AppliedAddOn
 ```
 
 Apply an add-on to a customer
@@ -30,16 +30,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+$apiInstance = new LagoClient\Api\AddOnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$applied_add_on_input = new \OpenAPI\Client\Model\AppliedAddOnInput(); // \OpenAPI\Client\Model\AppliedAddOnInput | Apply add-on payload
+$applied_add_on_input = new \LagoClient\Model\AppliedAddOnInput(); // \LagoClient\Model\AppliedAddOnInput | Apply add-on payload
 
 try {
     $result = $apiInstance->applyAddOn($applied_add_on_input);
@@ -53,11 +53,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **applied_add_on_input** | [**\OpenAPI\Client\Model\AppliedAddOnInput**](../Model/AppliedAddOnInput.md)| Apply add-on payload | |
+| **applied_add_on_input** | [**\LagoClient\Model\AppliedAddOnInput**](../Model/AppliedAddOnInput.md)| Apply add-on payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AppliedAddOn**](../Model/AppliedAddOn.md)
+[**\LagoClient\Model\AppliedAddOn**](../Model/AppliedAddOn.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `createAddOn()`
 
 ```php
-createAddOn($add_on_input): \OpenAPI\Client\Model\AddOn
+createAddOn($add_on_input): \LagoClient\Model\AddOn
 ```
 
 Create a new add-on
@@ -90,16 +90,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+$apiInstance = new LagoClient\Api\AddOnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$add_on_input = new \OpenAPI\Client\Model\AddOnInput(); // \OpenAPI\Client\Model\AddOnInput | Add-on payload
+$add_on_input = new \LagoClient\Model\AddOnInput(); // \LagoClient\Model\AddOnInput | Add-on payload
 
 try {
     $result = $apiInstance->createAddOn($add_on_input);
@@ -113,11 +113,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **add_on_input** | [**\OpenAPI\Client\Model\AddOnInput**](../Model/AddOnInput.md)| Add-on payload | |
+| **add_on_input** | [**\LagoClient\Model\AddOnInput**](../Model/AddOnInput.md)| Add-on payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AddOn**](../Model/AddOn.md)
+[**\LagoClient\Model\AddOn**](../Model/AddOn.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ try {
 ## `destroyAddOn()`
 
 ```php
-destroyAddOn($code): \OpenAPI\Client\Model\AddOn
+destroyAddOn($code): \LagoClient\Model\AddOn
 ```
 
 Delete an add-on
@@ -150,10 +150,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+$apiInstance = new LagoClient\Api\AddOnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -177,7 +177,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AddOn**](../Model/AddOn.md)
+[**\LagoClient\Model\AddOn**](../Model/AddOn.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ try {
 ## `findAddOn()`
 
 ```php
-findAddOn($code): \OpenAPI\Client\Model\AddOn
+findAddOn($code): \LagoClient\Model\AddOn
 ```
 
 Find add-on by code
@@ -210,10 +210,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+$apiInstance = new LagoClient\Api\AddOnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -237,7 +237,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AddOn**](../Model/AddOn.md)
+[**\LagoClient\Model\AddOn**](../Model/AddOn.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ try {
 ## `findAllAddOns()`
 
 ```php
-findAllAddOns($page, $per_page): \OpenAPI\Client\Model\AddOnsPaginated
+findAllAddOns($page, $per_page): \LagoClient\Model\AddOnsPaginated
 ```
 
 Find add-ons
@@ -270,10 +270,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+$apiInstance = new LagoClient\Api\AddOnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -299,7 +299,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AddOnsPaginated**](../Model/AddOnsPaginated.md)
+[**\LagoClient\Model\AddOnsPaginated**](../Model/AddOnsPaginated.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ try {
 ## `updateAddOn()`
 
 ```php
-updateAddOn($code, $add_on_input): \OpenAPI\Client\Model\AddOn
+updateAddOn($code, $add_on_input): \LagoClient\Model\AddOn
 ```
 
 Update an existing add-on
@@ -332,17 +332,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+$apiInstance = new LagoClient\Api\AddOnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $code = example_code; // string | Code of the existing add-on
-$add_on_input = new \OpenAPI\Client\Model\AddOnInput(); // \OpenAPI\Client\Model\AddOnInput | Update an existing add-on
+$add_on_input = new \LagoClient\Model\AddOnInput(); // \LagoClient\Model\AddOnInput | Update an existing add-on
 
 try {
     $result = $apiInstance->updateAddOn($code, $add_on_input);
@@ -357,11 +357,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of the existing add-on | |
-| **add_on_input** | [**\OpenAPI\Client\Model\AddOnInput**](../Model/AddOnInput.md)| Update an existing add-on | |
+| **add_on_input** | [**\LagoClient\Model\AddOnInput**](../Model/AddOnInput.md)| Update an existing add-on | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AddOn**](../Model/AddOn.md)
+[**\LagoClient\Model\AddOn**](../Model/AddOn.md)
 
 ### Authorization
 

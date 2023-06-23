@@ -1,4 +1,4 @@
-# OpenAPI\Client\EventsApi
+# LagoClient\EventsApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -6,7 +6,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 | ------------- | ------------- | ------------- |
 | [**createBatchEvents()**](EventsApi.md#createBatchEvents) | **POST** /events/batch | Create batch events |
 | [**createEvent()**](EventsApi.md#createEvent) | **POST** /events | Create a new event |
-| [**eventEstimateFees()**](EventsApi.md#eventEstimateFees) | **POST** /events/estimate_fees | Estimate fees for an instant charge |
+| [**eventEstimateFees()**](EventsApi.md#eventEstimateFees) | **POST** /events/estimate_fees | Estimate fees for an pay in advance charge |
 | [**findEvent()**](EventsApi.md#findEvent) | **GET** /events/{id} | Find event by transaction ID |
 
 
@@ -28,16 +28,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EventsApi(
+$apiInstance = new LagoClient\Api\EventsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$batch_event_input = new \OpenAPI\Client\Model\BatchEventInput(); // \OpenAPI\Client\Model\BatchEventInput | Batch events payload
+$batch_event_input = new \LagoClient\Model\BatchEventInput(); // \LagoClient\Model\BatchEventInput | Batch events payload
 
 try {
     $apiInstance->createBatchEvents($batch_event_input);
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **batch_event_input** | [**\OpenAPI\Client\Model\BatchEventInput**](../Model/BatchEventInput.md)| Batch events payload | |
+| **batch_event_input** | [**\LagoClient\Model\BatchEventInput**](../Model/BatchEventInput.md)| Batch events payload | |
 
 ### Return type
 
@@ -87,16 +87,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EventsApi(
+$apiInstance = new LagoClient\Api\EventsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$event_input = new \OpenAPI\Client\Model\EventInput(); // \OpenAPI\Client\Model\EventInput | Event payload
+$event_input = new \LagoClient\Model\EventInput(); // \LagoClient\Model\EventInput | Event payload
 
 try {
     $apiInstance->createEvent($event_input);
@@ -109,7 +109,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **event_input** | [**\OpenAPI\Client\Model\EventInput**](../Model/EventInput.md)| Event payload | |
+| **event_input** | [**\LagoClient\Model\EventInput**](../Model/EventInput.md)| Event payload | |
 
 ### Return type
 
@@ -131,12 +131,12 @@ void (empty response body)
 ## `eventEstimateFees()`
 
 ```php
-eventEstimateFees($event_estimate_fees_input): \OpenAPI\Client\Model\Fees
+eventEstimateFees($event_estimate_fees_input): \LagoClient\Model\Fees
 ```
 
-Estimate fees for an instant charge
+Estimate fees for an pay in advance charge
 
-Estimate the fees that would be created after reception of an event for a billable metric attached to one or multiple instant charges
+Estimate the fees that would be created after reception of an event for a billable metric attached to one or multiple pay in advance charges
 
 ### Example
 
@@ -146,16 +146,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EventsApi(
+$apiInstance = new LagoClient\Api\EventsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$event_estimate_fees_input = new \OpenAPI\Client\Model\EventEstimateFeesInput(); // \OpenAPI\Client\Model\EventEstimateFeesInput | Event payload for instant fee estimate
+$event_estimate_fees_input = new \LagoClient\Model\EventEstimateFeesInput(); // \LagoClient\Model\EventEstimateFeesInput | Event payload for pay in advance fee estimate
 
 try {
     $result = $apiInstance->eventEstimateFees($event_estimate_fees_input);
@@ -169,11 +169,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **event_estimate_fees_input** | [**\OpenAPI\Client\Model\EventEstimateFeesInput**](../Model/EventEstimateFeesInput.md)| Event payload for instant fee estimate | |
+| **event_estimate_fees_input** | [**\LagoClient\Model\EventEstimateFeesInput**](../Model/EventEstimateFeesInput.md)| Event payload for pay in advance fee estimate | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Fees**](../Model/Fees.md)
+[**\LagoClient\Model\Fees**](../Model/Fees.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ try {
 ## `findEvent()`
 
 ```php
-findEvent($id): \OpenAPI\Client\Model\Event
+findEvent($id): \LagoClient\Model\Event
 ```
 
 Find event by transaction ID
@@ -206,10 +206,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EventsApi(
+$apiInstance = new LagoClient\Api\EventsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -233,7 +233,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Event**](../Model/Event.md)
+[**\LagoClient\Model\Event**](../Model/Event.md)
 
 ### Authorization
 

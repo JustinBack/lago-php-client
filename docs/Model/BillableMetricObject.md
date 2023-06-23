@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **created_at** | **\DateTime** |  |
 **field_name** | **string** |  | [optional]
 **aggregation_type** | **string** | Aggregation type |
-**group** | [**\OpenAPI\Client\Model\BillableMetricGroup**](BillableMetricGroup.md) |  | [optional]
+**group** | [**\LagoClient\Model\BillableMetricGroup**](BillableMetricGroup.md) |  | [optional]
 **active_subscriptions_count** | **int** |  |
 **draft_invoices_count** | **int** |  |
 **plans_count** | **int** |  |

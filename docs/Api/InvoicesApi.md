@@ -1,4 +1,4 @@
-# OpenAPI\Client\InvoicesApi
+# LagoClient\InvoicesApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -17,7 +17,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `createInvoice()`
 
 ```php
-createInvoice($invoice_one_off_input): \OpenAPI\Client\Model\Invoice
+createInvoice($invoice_one_off_input): \LagoClient\Model\Invoice
 ```
 
 Create a new invoice
@@ -32,16 +32,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$invoice_one_off_input = new \OpenAPI\Client\Model\InvoiceOneOffInput(); // \OpenAPI\Client\Model\InvoiceOneOffInput | Invoice payload
+$invoice_one_off_input = new \LagoClient\Model\InvoiceOneOffInput(); // \LagoClient\Model\InvoiceOneOffInput | Invoice payload
 
 try {
     $result = $apiInstance->createInvoice($invoice_one_off_input);
@@ -55,11 +55,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoice_one_off_input** | [**\OpenAPI\Client\Model\InvoiceOneOffInput**](../Model/InvoiceOneOffInput.md)| Invoice payload | |
+| **invoice_one_off_input** | [**\LagoClient\Model\InvoiceOneOffInput**](../Model/InvoiceOneOffInput.md)| Invoice payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Invoice**](../Model/Invoice.md)
+[**\LagoClient\Model\Invoice**](../Model/Invoice.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `downloadInvoice()`
 
 ```php
-downloadInvoice($id): \OpenAPI\Client\Model\Invoice
+downloadInvoice($id): \LagoClient\Model\Invoice
 ```
 
 Download an existing invoice
@@ -92,10 +92,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -119,7 +119,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Invoice**](../Model/Invoice.md)
+[**\LagoClient\Model\Invoice**](../Model/Invoice.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ try {
 ## `finalizeInvoice()`
 
 ```php
-finalizeInvoice($id): \OpenAPI\Client\Model\Invoice
+finalizeInvoice($id): \LagoClient\Model\Invoice
 ```
 
 Finalize a draft invoice
@@ -152,10 +152,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -179,7 +179,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Invoice**](../Model/Invoice.md)
+[**\LagoClient\Model\Invoice**](../Model/Invoice.md)
 
 ### Authorization
 
@@ -197,7 +197,7 @@ try {
 ## `findAllInvoices()`
 
 ```php
-findAllInvoices($page, $per_page, $external_customer_id, $issuing_date_from, $issuing_date_to, $status): \OpenAPI\Client\Model\InvoicesPaginated
+findAllInvoices($page, $per_page, $external_customer_id, $issuing_date_from, $issuing_date_to, $status): \LagoClient\Model\InvoicesPaginated
 ```
 
 Find all invoices
@@ -212,10 +212,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -249,7 +249,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvoicesPaginated**](../Model/InvoicesPaginated.md)
+[**\LagoClient\Model\InvoicesPaginated**](../Model/InvoicesPaginated.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ try {
 ## `findInvoice()`
 
 ```php
-findInvoice($id): \OpenAPI\Client\Model\Invoice
+findInvoice($id): \LagoClient\Model\Invoice
 ```
 
 Find invoice by ID
@@ -282,10 +282,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Invoice**](../Model/Invoice.md)
+[**\LagoClient\Model\Invoice**](../Model/Invoice.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ try {
 ## `refreshInvoice()`
 
 ```php
-refreshInvoice($id): \OpenAPI\Client\Model\Invoice
+refreshInvoice($id): \LagoClient\Model\Invoice
 ```
 
 Refresh a draft invoice
@@ -342,10 +342,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -369,7 +369,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Invoice**](../Model/Invoice.md)
+[**\LagoClient\Model\Invoice**](../Model/Invoice.md)
 
 ### Authorization
 
@@ -402,10 +402,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -446,7 +446,7 @@ void (empty response body)
 ## `updateInvoice()`
 
 ```php
-updateInvoice($id, $invoice_input): \OpenAPI\Client\Model\Invoice
+updateInvoice($id, $invoice_input): \LagoClient\Model\Invoice
 ```
 
 Update an existing invoice status
@@ -461,17 +461,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new LagoClient\Api\InvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Invoice
-$invoice_input = new \OpenAPI\Client\Model\InvoiceInput(); // \OpenAPI\Client\Model\InvoiceInput | Update an existing invoice
+$invoice_input = new \LagoClient\Model\InvoiceInput(); // \LagoClient\Model\InvoiceInput | Update an existing invoice
 
 try {
     $result = $apiInstance->updateInvoice($id, $invoice_input);
@@ -486,11 +486,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| ID of the existing Lago Invoice | |
-| **invoice_input** | [**\OpenAPI\Client\Model\InvoiceInput**](../Model/InvoiceInput.md)| Update an existing invoice | |
+| **invoice_input** | [**\LagoClient\Model\InvoiceInput**](../Model/InvoiceInput.md)| Update an existing invoice | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Invoice**](../Model/Invoice.md)
+[**\LagoClient\Model\Invoice**](../Model/Invoice.md)
 
 ### Authorization
 

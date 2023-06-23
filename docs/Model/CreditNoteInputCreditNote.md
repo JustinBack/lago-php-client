@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional]
 **credit_amount_cents** | **int** |  |
 **refund_amount_cents** | **int** |  |
-**items** | [**\OpenAPI\Client\Model\CreditNoteInputCreditNoteItemsInner[]**](CreditNoteInputCreditNoteItemsInner.md) |  |
+**items** | [**\LagoClient\Model\CreditNoteInputCreditNoteItemsInner[]**](CreditNoteInputCreditNoteItemsInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

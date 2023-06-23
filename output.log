@@ -1,0 +1,61 @@
+Running php-build composer
+WARNING! Your password will be stored unencrypted in /home/runner/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+Pulling docker.pkg.github.com/g-portal/lago-php-client/php-actions_composer_lago-php-client:php-latest-build2.1.0
+php-latest-build2.1.0: Pulling from g-portal/lago-php-client/php-actions_composer_lago-php-client
+31e352740f53: Already exists
+f034080c2b5d: Pulling fs layer
+0b8701d6f7d5: Pulling fs layer
+259e9197ff8b: Pulling fs layer
+a16e442da9b3: Pulling fs layer
+82868e6e9750: Pulling fs layer
+95d9ce309064: Pulling fs layer
+f6bdf624500d: Pulling fs layer
+f67a8b1cf3aa: Pulling fs layer
+9556866b65a1: Pulling fs layer
+95d9ce309064: Waiting
+f6bdf624500d: Waiting
+f67a8b1cf3aa: Waiting
+9556866b65a1: Waiting
+a16e442da9b3: Waiting
+82868e6e9750: Waiting
+259e9197ff8b: Verifying Checksum
+259e9197ff8b: Download complete
+0b8701d6f7d5: Verifying Checksum
+0b8701d6f7d5: Download complete
+f034080c2b5d: Verifying Checksum
+f034080c2b5d: Download complete
+f034080c2b5d: Pull complete
+0b8701d6f7d5: Pull complete
+82868e6e9750: Verifying Checksum
+82868e6e9750: Download complete
+259e9197ff8b: Pull complete
+a16e442da9b3: Verifying Checksum
+a16e442da9b3: Download complete
+95d9ce309064: Verifying Checksum
+95d9ce309064: Download complete
+a16e442da9b3: Pull complete
+f6bdf624500d: Verifying Checksum
+f6bdf624500d: Download complete
+82868e6e9750: Pull complete
+f67a8b1cf3aa: Verifying Checksum
+f67a8b1cf3aa: Download complete
+9556866b65a1: Verifying Checksum
+9556866b65a1: Download complete
+95d9ce309064: Pull complete
+f6bdf624500d: Pull complete
+f67a8b1cf3aa: Pull complete
+9556866b65a1: Pull complete
+Digest: sha256:f04521187972ffa779a1ede2ed18a0aa3f324a9d8f5d0cd860472ff2ad6cc943
+Status: Downloaded newer image for docker.pkg.github.com/g-portal/lago-php-client/php-actions_composer_lago-php-client:php-latest-build2.1.0
+docker.pkg.github.com/g-portal/lago-php-client/php-actions_composer_lago-php-client:php-latest-build2.1.0
+Docker tag: docker.pkg.github.com/g-portal/lago-php-client/php-actions_composer_lago-php-client:php-latest-build2.1.0
+No private keys supplied
+Command: composer install --no-progress --no-interaction
+Skipping env variable PWD
+Skipping env variable HOME
+Skipping env variable SHLVL
+Skipping env variable PATH

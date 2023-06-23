@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **bill_charges_monthly** | **bool** |  | [optional]
 **active_subscriptions_count** | **int** |  |
 **draft_invoices_count** | **int** |  |
-**charges** | [**\OpenAPI\Client\Model\ChargeObject[]**](ChargeObject.md) |  | [optional]
+**charges** | [**\LagoClient\Model\ChargeObject[]**](ChargeObject.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

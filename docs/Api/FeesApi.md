@@ -1,4 +1,4 @@
-# OpenAPI\Client\FeesApi
+# LagoClient\FeesApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `findAllFees()`
 
 ```php
-findAllFees($page, $per_page, $external_customer_id, $external_subscription_id, $currency, $fee_type, $billable_metric_code, $payment_status, $created_at_from, $created_at_to, $succeeded_at_from, $succeeded_at_to, $failed_at_from, $failed_at_to, $refunded_at_from, $refunded_at_to): \OpenAPI\Client\Model\FeesPaginated
+findAllFees($page, $per_page, $external_customer_id, $external_subscription_id, $currency, $fee_type, $billable_metric_code, $payment_status, $created_at_from, $created_at_to, $succeeded_at_from, $succeeded_at_to, $failed_at_from, $failed_at_to, $refunded_at_from, $refunded_at_to): \LagoClient\Model\FeesPaginated
 ```
 
 Find all fees
@@ -27,10 +27,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\FeesApi(
+$apiInstance = new LagoClient\Api\FeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -84,7 +84,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\FeesPaginated**](../Model/FeesPaginated.md)
+[**\LagoClient\Model\FeesPaginated**](../Model/FeesPaginated.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ try {
 ## `findFee()`
 
 ```php
-findFee($id): \OpenAPI\Client\Model\FeeObject
+findFee($id): \LagoClient\Model\FeeObject
 ```
 
 Find fee by ID
@@ -117,10 +117,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\FeesApi(
+$apiInstance = new LagoClient\Api\FeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -144,7 +144,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\FeeObject**](../Model/FeeObject.md)
+[**\LagoClient\Model\FeeObject**](../Model/FeeObject.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ try {
 ## `updateFee()`
 
 ```php
-updateFee($id, $fee_update_input): \OpenAPI\Client\Model\FeeObject
+updateFee($id, $fee_update_input): \LagoClient\Model\FeeObject
 ```
 
 Update an existing fee
@@ -177,17 +177,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\FeesApi(
+$apiInstance = new LagoClient\Api\FeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Fee
-$fee_update_input = new \OpenAPI\Client\Model\FeeUpdateInput(); // \OpenAPI\Client\Model\FeeUpdateInput | Payload to update a fee
+$fee_update_input = new \LagoClient\Model\FeeUpdateInput(); // \LagoClient\Model\FeeUpdateInput | Payload to update a fee
 
 try {
     $result = $apiInstance->updateFee($id, $fee_update_input);
@@ -202,11 +202,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| ID of the existing Lago Fee | |
-| **fee_update_input** | [**\OpenAPI\Client\Model\FeeUpdateInput**](../Model/FeeUpdateInput.md)| Payload to update a fee | [optional] |
+| **fee_update_input** | [**\LagoClient\Model\FeeUpdateInput**](../Model/FeeUpdateInput.md)| Payload to update a fee | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\FeeObject**](../Model/FeeObject.md)
+[**\LagoClient\Model\FeeObject**](../Model/FeeObject.md)
 
 ### Authorization
 

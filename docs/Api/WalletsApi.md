@@ -1,4 +1,4 @@
-# OpenAPI\Client\WalletsApi
+# LagoClient\WalletsApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -16,7 +16,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `createWallet()`
 
 ```php
-createWallet($wallet_input): \OpenAPI\Client\Model\Wallet
+createWallet($wallet_input): \LagoClient\Model\Wallet
 ```
 
 Create a new wallet
@@ -31,16 +31,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$wallet_input = new \OpenAPI\Client\Model\WalletInput(); // \OpenAPI\Client\Model\WalletInput | Wallet payload
+$wallet_input = new \LagoClient\Model\WalletInput(); // \LagoClient\Model\WalletInput | Wallet payload
 
 try {
     $result = $apiInstance->createWallet($wallet_input);
@@ -54,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **wallet_input** | [**\OpenAPI\Client\Model\WalletInput**](../Model/WalletInput.md)| Wallet payload | |
+| **wallet_input** | [**\LagoClient\Model\WalletInput**](../Model/WalletInput.md)| Wallet payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Wallet**](../Model/Wallet.md)
+[**\LagoClient\Model\Wallet**](../Model/Wallet.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `createWalletTransaction()`
 
 ```php
-createWalletTransaction($wallet_transaction_input): \OpenAPI\Client\Model\WalletTransactions
+createWalletTransaction($wallet_transaction_input): \LagoClient\Model\WalletTransactions
 ```
 
 Create a new wallet transaction
@@ -91,16 +91,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$wallet_transaction_input = new \OpenAPI\Client\Model\WalletTransactionInput(); // \OpenAPI\Client\Model\WalletTransactionInput | Wallet transaction payload
+$wallet_transaction_input = new \LagoClient\Model\WalletTransactionInput(); // \LagoClient\Model\WalletTransactionInput | Wallet transaction payload
 
 try {
     $result = $apiInstance->createWalletTransaction($wallet_transaction_input);
@@ -114,11 +114,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **wallet_transaction_input** | [**\OpenAPI\Client\Model\WalletTransactionInput**](../Model/WalletTransactionInput.md)| Wallet transaction payload | |
+| **wallet_transaction_input** | [**\LagoClient\Model\WalletTransactionInput**](../Model/WalletTransactionInput.md)| Wallet transaction payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WalletTransactions**](../Model/WalletTransactions.md)
+[**\LagoClient\Model\WalletTransactions**](../Model/WalletTransactions.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ try {
 ## `destroyWallet()`
 
 ```php
-destroyWallet($id): \OpenAPI\Client\Model\Wallet
+destroyWallet($id): \LagoClient\Model\Wallet
 ```
 
 Delete a wallet
@@ -151,10 +151,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -178,7 +178,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Wallet**](../Model/Wallet.md)
+[**\LagoClient\Model\Wallet**](../Model/Wallet.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ try {
 ## `findAllWalletTransactions()`
 
 ```php
-findAllWalletTransactions($id, $page, $per_page, $status, $transaction_type): \OpenAPI\Client\Model\WalletTransactionsPaginated
+findAllWalletTransactions($id, $page, $per_page, $status, $transaction_type): \LagoClient\Model\WalletTransactionsPaginated
 ```
 
 Find wallet transactions
@@ -211,10 +211,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -246,7 +246,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WalletTransactionsPaginated**](../Model/WalletTransactionsPaginated.md)
+[**\LagoClient\Model\WalletTransactionsPaginated**](../Model/WalletTransactionsPaginated.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ try {
 ## `findAllWallets()`
 
 ```php
-findAllWallets($external_customer_id, $page, $per_page): \OpenAPI\Client\Model\WalletsPaginated
+findAllWallets($external_customer_id, $page, $per_page): \LagoClient\Model\WalletsPaginated
 ```
 
 Find wallets
@@ -279,10 +279,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -310,7 +310,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WalletsPaginated**](../Model/WalletsPaginated.md)
+[**\LagoClient\Model\WalletsPaginated**](../Model/WalletsPaginated.md)
 
 ### Authorization
 
@@ -328,7 +328,7 @@ try {
 ## `findWallet()`
 
 ```php
-findWallet($id): \OpenAPI\Client\Model\Wallet
+findWallet($id): \LagoClient\Model\Wallet
 ```
 
 Find wallet
@@ -343,10 +343,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -370,7 +370,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Wallet**](../Model/Wallet.md)
+[**\LagoClient\Model\Wallet**](../Model/Wallet.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ try {
 ## `updateWallet()`
 
 ```php
-updateWallet($id, $wallet_update_input): \OpenAPI\Client\Model\Wallet
+updateWallet($id, $wallet_update_input): \LagoClient\Model\Wallet
 ```
 
 Update an existing wallet
@@ -403,17 +403,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new LagoClient\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Lago ID of the existing wallet
-$wallet_update_input = new \OpenAPI\Client\Model\WalletUpdateInput(); // \OpenAPI\Client\Model\WalletUpdateInput | Update an existing wallet
+$wallet_update_input = new \LagoClient\Model\WalletUpdateInput(); // \LagoClient\Model\WalletUpdateInput | Update an existing wallet
 
 try {
     $result = $apiInstance->updateWallet($id, $wallet_update_input);
@@ -428,11 +428,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Lago ID of the existing wallet | |
-| **wallet_update_input** | [**\OpenAPI\Client\Model\WalletUpdateInput**](../Model/WalletUpdateInput.md)| Update an existing wallet | |
+| **wallet_update_input** | [**\LagoClient\Model\WalletUpdateInput**](../Model/WalletUpdateInput.md)| Update an existing wallet | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Wallet**](../Model/Wallet.md)
+[**\LagoClient\Model\Wallet**](../Model/Wallet.md)
 
 ### Authorization
 

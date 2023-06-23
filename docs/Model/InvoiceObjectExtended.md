@@ -29,10 +29,10 @@ Name | Type | Description | Notes
 **total_amount_currency** | **string** |  |
 **legacy** | **bool** |  |
 **file_url** | **string** |  | [optional]
-**customer** | [**\OpenAPI\Client\Model\CustomerObject**](CustomerObject.md) |  |
-**metadata** | [**\OpenAPI\Client\Model\InvoiceMetadataObject[]**](InvoiceMetadataObject.md) |  | [optional]
-**credits** | [**\OpenAPI\Client\Model\CreditObject[]**](CreditObject.md) |  |
-**fees** | [**\OpenAPI\Client\Model\FeeObject[]**](FeeObject.md) |  |
-**subscriptions** | [**\OpenAPI\Client\Model\SubscriptionObject[]**](SubscriptionObject.md) |  |
+**customer** | [**\LagoClient\Model\CustomerObject**](CustomerObject.md) |  |
+**metadata** | [**\LagoClient\Model\InvoiceMetadataObject[]**](InvoiceMetadataObject.md) |  | [optional]
+**credits** | [**\LagoClient\Model\CreditObject[]**](CreditObject.md) |  |
+**fees** | [**\LagoClient\Model\FeeObject[]**](FeeObject.md) |  |
+**subscriptions** | [**\LagoClient\Model\SubscriptionObject[]**](SubscriptionObject.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

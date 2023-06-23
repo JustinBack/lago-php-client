@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **frequency_duration** | **int** |  | [optional]
 **expiration_at** | **\DateTime** |  | [optional]
 **expiration** | **string** | Expiration type | [optional]
-**applies_to** | [**\OpenAPI\Client\Model\CouponInputCouponAppliesTo**](CouponInputCouponAppliesTo.md) |  | [optional]
+**applies_to** | [**\LagoClient\Model\CouponInputCouponAppliesTo**](CouponInputCouponAppliesTo.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

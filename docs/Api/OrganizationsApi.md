@@ -1,4 +1,4 @@
-# OpenAPI\Client\OrganizationsApi
+# LagoClient\OrganizationsApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `updateOrganization()`
 
 ```php
-updateOrganization($organization_input): \OpenAPI\Client\Model\Organization
+updateOrganization($organization_input): \LagoClient\Model\Organization
 ```
 
 Update an existing Organization
@@ -25,16 +25,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\OrganizationsApi(
+$apiInstance = new LagoClient\Api\OrganizationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$organization_input = new \OpenAPI\Client\Model\OrganizationInput(); // \OpenAPI\Client\Model\OrganizationInput | Update an existing organization
+$organization_input = new \LagoClient\Model\OrganizationInput(); // \LagoClient\Model\OrganizationInput | Update an existing organization
 
 try {
     $result = $apiInstance->updateOrganization($organization_input);
@@ -48,11 +48,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **organization_input** | [**\OpenAPI\Client\Model\OrganizationInput**](../Model/OrganizationInput.md)| Update an existing organization | |
+| **organization_input** | [**\LagoClient\Model\OrganizationInput**](../Model/OrganizationInput.md)| Update an existing organization | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Organization**](../Model/Organization.md)
+[**\LagoClient\Model\Organization**](../Model/Organization.md)
 
 ### Authorization
 

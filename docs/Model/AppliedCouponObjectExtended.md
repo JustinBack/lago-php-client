@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **expiration_at** | **\DateTime** |  | [optional]
 **created_at** | **\DateTime** |  |
 **terminated_at** | **\DateTime** |  | [optional]
-**credits** | [**\OpenAPI\Client\Model\CreditObject[]**](CreditObject.md) |  |
+**credits** | [**\LagoClient\Model\CreditObject[]**](CreditObject.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

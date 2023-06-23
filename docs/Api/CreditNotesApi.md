@@ -1,4 +1,4 @@
-# OpenAPI\Client\CreditNotesApi
+# LagoClient\CreditNotesApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -15,7 +15,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `createCreditNote()`
 
 ```php
-createCreditNote($credit_note_input): \OpenAPI\Client\Model\CreditNote
+createCreditNote($credit_note_input): \LagoClient\Model\CreditNote
 ```
 
 Create a new Credit note
@@ -30,16 +30,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new LagoClient\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$credit_note_input = new \OpenAPI\Client\Model\CreditNoteInput(); // \OpenAPI\Client\Model\CreditNoteInput | Credit note payload
+$credit_note_input = new \LagoClient\Model\CreditNoteInput(); // \LagoClient\Model\CreditNoteInput | Credit note payload
 
 try {
     $result = $apiInstance->createCreditNote($credit_note_input);
@@ -53,11 +53,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **credit_note_input** | [**\OpenAPI\Client\Model\CreditNoteInput**](../Model/CreditNoteInput.md)| Credit note payload | |
+| **credit_note_input** | [**\LagoClient\Model\CreditNoteInput**](../Model/CreditNoteInput.md)| Credit note payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNote**](../Model/CreditNote.md)
+[**\LagoClient\Model\CreditNote**](../Model/CreditNote.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `downloadCreditNote()`
 
 ```php
-downloadCreditNote($id): \OpenAPI\Client\Model\CreditNote
+downloadCreditNote($id): \LagoClient\Model\CreditNote
 ```
 
 Download an existing credit note
@@ -90,10 +90,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new LagoClient\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNote**](../Model/CreditNote.md)
+[**\LagoClient\Model\CreditNote**](../Model/CreditNote.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ try {
 ## `findAllCreditNotes()`
 
 ```php
-findAllCreditNotes($page, $per_page, $external_customer_id): \OpenAPI\Client\Model\CreditNotes
+findAllCreditNotes($page, $per_page, $external_customer_id): \LagoClient\Model\CreditNotes
 ```
 
 Find Credit notes
@@ -150,10 +150,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new LagoClient\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -181,7 +181,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNotes**](../Model/CreditNotes.md)
+[**\LagoClient\Model\CreditNotes**](../Model/CreditNotes.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ try {
 ## `findCreditNote()`
 
 ```php
-findCreditNote($id): \OpenAPI\Client\Model\CreditNote
+findCreditNote($id): \LagoClient\Model\CreditNote
 ```
 
 Find credit note
@@ -214,10 +214,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new LagoClient\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -241,7 +241,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNote**](../Model/CreditNote.md)
+[**\LagoClient\Model\CreditNote**](../Model/CreditNote.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ try {
 ## `updateCreditNote()`
 
 ```php
-updateCreditNote($id, $credit_note_update_input): \OpenAPI\Client\Model\CreditNote
+updateCreditNote($id, $credit_note_update_input): \LagoClient\Model\CreditNote
 ```
 
 Update an existing credit note
@@ -274,17 +274,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new LagoClient\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 12345; // string | Id of the existing credit note
-$credit_note_update_input = new \OpenAPI\Client\Model\CreditNoteUpdateInput(); // \OpenAPI\Client\Model\CreditNoteUpdateInput | Update an existing credit note
+$credit_note_update_input = new \LagoClient\Model\CreditNoteUpdateInput(); // \LagoClient\Model\CreditNoteUpdateInput | Update an existing credit note
 
 try {
     $result = $apiInstance->updateCreditNote($id, $credit_note_update_input);
@@ -299,11 +299,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Id of the existing credit note | |
-| **credit_note_update_input** | [**\OpenAPI\Client\Model\CreditNoteUpdateInput**](../Model/CreditNoteUpdateInput.md)| Update an existing credit note | |
+| **credit_note_update_input** | [**\LagoClient\Model\CreditNoteUpdateInput**](../Model/CreditNoteUpdateInput.md)| Update an existing credit note | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNote**](../Model/CreditNote.md)
+[**\LagoClient\Model\CreditNote**](../Model/CreditNote.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ try {
 ## `voidCreditNote()`
 
 ```php
-voidCreditNote($id): \OpenAPI\Client\Model\CreditNote
+voidCreditNote($id): \LagoClient\Model\CreditNote
 ```
 
 Void existing credit note
@@ -336,10 +336,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new LagoClient\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -363,7 +363,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNote**](../Model/CreditNote.md)
+[**\LagoClient\Model\CreditNote**](../Model/CreditNote.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# OpenAPI\Client\SubscriptionsApi
+# LagoClient\SubscriptionsApi
 
 All URIs are relative to https://api.getlago.com/api/v1, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 ## `createSubscription()`
 
 ```php
-createSubscription($subscription_create_input): \OpenAPI\Client\Model\Subscription
+createSubscription($subscription_create_input): \LagoClient\Model\Subscription
 ```
 
 Assign a plan to a customer
@@ -28,16 +28,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+$apiInstance = new LagoClient\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$subscription_create_input = new \OpenAPI\Client\Model\SubscriptionCreateInput(); // \OpenAPI\Client\Model\SubscriptionCreateInput | Subscription payload
+$subscription_create_input = new \LagoClient\Model\SubscriptionCreateInput(); // \LagoClient\Model\SubscriptionCreateInput | Subscription payload
 
 try {
     $result = $apiInstance->createSubscription($subscription_create_input);
@@ -51,11 +51,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **subscription_create_input** | [**\OpenAPI\Client\Model\SubscriptionCreateInput**](../Model/SubscriptionCreateInput.md)| Subscription payload | |
+| **subscription_create_input** | [**\LagoClient\Model\SubscriptionCreateInput**](../Model/SubscriptionCreateInput.md)| Subscription payload | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Subscription**](../Model/Subscription.md)
+[**\LagoClient\Model\Subscription**](../Model/Subscription.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ try {
 ## `destroySubscription()`
 
 ```php
-destroySubscription($external_id): \OpenAPI\Client\Model\Subscription
+destroySubscription($external_id): \LagoClient\Model\Subscription
 ```
 
 Terminate a subscription
@@ -88,10 +88,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+$apiInstance = new LagoClient\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -115,7 +115,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Subscription**](../Model/Subscription.md)
+[**\LagoClient\Model\Subscription**](../Model/Subscription.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ try {
 ## `findAllSubscriptions()`
 
 ```php
-findAllSubscriptions($page, $per_page, $external_customer_id, $plan_code): \OpenAPI\Client\Model\SubscriptionsPaginated
+findAllSubscriptions($page, $per_page, $external_customer_id, $plan_code): \LagoClient\Model\SubscriptionsPaginated
 ```
 
 Find subscriptions
@@ -148,10 +148,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+$apiInstance = new LagoClient\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -181,7 +181,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SubscriptionsPaginated**](../Model/SubscriptionsPaginated.md)
+[**\LagoClient\Model\SubscriptionsPaginated**](../Model/SubscriptionsPaginated.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ try {
 ## `updateSubscription()`
 
 ```php
-updateSubscription($external_id, $subscription_update_input): \OpenAPI\Client\Model\Subscription
+updateSubscription($external_id, $subscription_update_input): \LagoClient\Model\Subscription
 ```
 
 Update an existing subscription
@@ -214,17 +214,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+$apiInstance = new LagoClient\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $external_id = example_id; // string | External ID of the existing subscription
-$subscription_update_input = new \OpenAPI\Client\Model\SubscriptionUpdateInput(); // \OpenAPI\Client\Model\SubscriptionUpdateInput | Update an existing subscription
+$subscription_update_input = new \LagoClient\Model\SubscriptionUpdateInput(); // \LagoClient\Model\SubscriptionUpdateInput | Update an existing subscription
 
 try {
     $result = $apiInstance->updateSubscription($external_id, $subscription_update_input);
@@ -239,11 +239,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **external_id** | **string**| External ID of the existing subscription | |
-| **subscription_update_input** | [**\OpenAPI\Client\Model\SubscriptionUpdateInput**](../Model/SubscriptionUpdateInput.md)| Update an existing subscription | |
+| **subscription_update_input** | [**\LagoClient\Model\SubscriptionUpdateInput**](../Model/SubscriptionUpdateInput.md)| Update an existing subscription | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Subscription**](../Model/Subscription.md)
+[**\LagoClient\Model\Subscription**](../Model/Subscription.md)
 
 ### Authorization
 

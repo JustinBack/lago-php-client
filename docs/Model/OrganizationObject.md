@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **city** | **string** |  | [optional]
 **legal_name** | **string** |  | [optional]
 **legal_number** | **string** |  | [optional]
+**tax_identification_number** | **string** |  | [optional]
 **timezone** | **string** |  | [optional]
-**billing_configuration** | [**\OpenAPI\Client\Model\BillingConfigurationOrganization**](BillingConfigurationOrganization.md) |  | [optional]
+**billing_configuration** | [**\LagoClient\Model\BillingConfigurationOrganization**](BillingConfigurationOrganization.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

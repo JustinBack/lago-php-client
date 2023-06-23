@@ -22,10 +22,11 @@ Name | Type | Description | Notes
 **lago_url** | **string** |  | [optional]
 **legal_name** | **string** |  | [optional]
 **legal_number** | **string** |  | [optional]
+**tax_identification_number** | **string** |  | [optional]
 **currency** | **string** |  | [optional]
 **timezone** | **string** |  | [optional]
 **applicable_timezone** | **string** |  | [optional]
-**billing_configuration** | [**\OpenAPI\Client\Model\BillingConfigurationCustomer**](BillingConfigurationCustomer.md) |  | [optional]
-**metadata** | [**\OpenAPI\Client\Model\CustomerMetadataObject[]**](CustomerMetadataObject.md) |  | [optional]
+**billing_configuration** | [**\LagoClient\Model\BillingConfigurationCustomer**](BillingConfigurationCustomer.md) |  | [optional]
+**metadata** | [**\LagoClient\Model\CustomerMetadataObject[]**](CustomerMetadataObject.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
