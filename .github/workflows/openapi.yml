@@ -24,7 +24,7 @@ jobs:
         id: vars
         run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
       
-      - name: Generate Angular Client
+      - name: Generate Lago PHP Client
         env:
           RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         uses: openapi-generators/openapitools-generator-action@v1
@@ -32,3 +32,25 @@ jobs:
           generator: php
           openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${RELEASE_VERSION}/openapi.yaml
           command-args: "--additional-properties=invokerPackage=Lago\\Client"
+          
+      - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+        with:
+          # Arguments for the git fetch command. If set to false, the action won't fetch the repo.
+          # For more info as to why fetching is usually recommended, please see the "Performance on large repos" FAQ. 
+          # Default: --tags --force
+          fetch: false
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Update Lago PHP CLient ${{ steps.vars.outputs.tag }}'
+
+          # If this input is set, the action will push the commit to a new branch with this name.
+          # Default: ''
+          new_branch: "${{ steps.vars.outputs.tag }}"
+          # Arguments for the git tag command (the tag name always needs to be the first word not preceded by an hyphen)
+          # Default: ''
+          tag: '${{ steps.vars.outputs.tag }}"
+
+          # Arguments for the git push --tags command (any additional argument will be added after --tags)
+          # Default: ''
+          tag_push: '--force'
