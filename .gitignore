@@ -13,3 +13,10 @@ composer.phar
 
 # PHPUnit cache
 .phpunit.result.cache
+
+# Pipeline
+docker_tag
+composer.lock
+output.log
+Dockerfile-php-build
+DOCKER_ENV
