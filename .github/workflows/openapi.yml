@@ -1,0 +1,35 @@
+name: Build OpenAPI Lago Client
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  pull_request:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  generate-php-client:
+    runs-on: ubuntu-latest
+    name: Example
+    steps:
+
+      # Checkout your code
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Generate your OpenAPI document (if you don't write it manually)
+
+      - name: Set output
+        id: vars
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+      
+      - name: Generate Angular Client
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: php
+          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${RELEASE_VERSION}/openapi.yaml
+          command-args:
+            - "--additional-properties=invokerPackage=Lago\Client"
