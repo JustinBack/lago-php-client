@@ -20,8 +20,8 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
-          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/${{github.ref_name}}/openapi.yaml
-          command-args: "--additional-properties=invokerPackage=Lago\\Client -o ."
+          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/a4bee71b26f6b00fe19d93ab91ee1180af6d934d/openapi.yaml
+          command-args: "--additional-properties=invokerPackage=Lago\\Client -o . --skip-validate-spec"
           
       - name: Auto-Heal composer.json
         uses: sergeysova/jq-action@v2
