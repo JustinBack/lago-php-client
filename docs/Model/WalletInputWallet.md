@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** |  | [optional]
-**rate_amount** | **float** |  |
+**rate_amount** | **string** |  |
 **currency** | **string** |  |
-**paid_credits** | **float** |  | [optional]
-**granted_credits** | **float** |  | [optional]
+**paid_credits** | **string** |  | [optional]
+**granted_credits** | **string** |  | [optional]
 **external_customer_id** | **string** |  |
 **expiration_at** | **\DateTime** |  | [optional]
 

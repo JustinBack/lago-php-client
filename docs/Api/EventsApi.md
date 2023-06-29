@@ -4,21 +4,21 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createBatchEvents()**](EventsApi.md#createBatchEvents) | **POST** /events/batch | Create batch events |
-| [**createEvent()**](EventsApi.md#createEvent) | **POST** /events | Create a new event |
+| [**createBatchEvents()**](EventsApi.md#createBatchEvents) | **POST** /events/batch | Batch multiple events |
+| [**createEvent()**](EventsApi.md#createEvent) | **POST** /events | Send usage events |
 | [**eventEstimateFees()**](EventsApi.md#eventEstimateFees) | **POST** /events/estimate_fees | Estimate fees for an pay in advance charge |
-| [**findEvent()**](EventsApi.md#findEvent) | **GET** /events/{id} | Find event by transaction ID |
+| [**findEvent()**](EventsApi.md#findEvent) | **GET** /events/{transaction_id} | Retrieve a specific event |
 
 
 ## `createBatchEvents()`
 
 ```php
-createBatchEvents($batch_event_input)
+createBatchEvents($event_batch_input)
 ```
 
-Create batch events
+Batch multiple events
 
-Create batch events
+This endpoint is used for transmitting a batch of usage measurement events to multiple subscriptions for a single customer.
 
 ### Example
 
@@ -37,10 +37,10 @@ $apiInstance = new LagoClient\Api\EventsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$batch_event_input = new \LagoClient\Model\BatchEventInput(); // \LagoClient\Model\BatchEventInput | Batch events payload
+$event_batch_input = new \LagoClient\Model\EventBatchInput(); // \LagoClient\Model\EventBatchInput | Batch events payload
 
 try {
-    $apiInstance->createBatchEvents($batch_event_input);
+    $apiInstance->createBatchEvents($event_batch_input);
 } catch (Exception $e) {
     echo 'Exception when calling EventsApi->createBatchEvents: ', $e->getMessage(), PHP_EOL;
 }
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **batch_event_input** | [**\LagoClient\Model\BatchEventInput**](../Model/BatchEventInput.md)| Batch events payload | |
+| **event_batch_input** | [**\LagoClient\Model\EventBatchInput**](../Model/EventBatchInput.md)| Batch events payload | |
 
 ### Return type
 
@@ -63,7 +63,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -75,9 +75,9 @@ void (empty response body)
 createEvent($event_input)
 ```
 
-Create a new event
+Send usage events
 
-Create a new event
+This endpoint is used for transmitting usage measurement events to either a designated customer or a specific subscription.
 
 ### Example
 
@@ -122,7 +122,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -191,12 +191,12 @@ try {
 ## `findEvent()`
 
 ```php
-findEvent($id): \LagoClient\Model\Event
+findEvent($transaction_id): \LagoClient\Model\Event
 ```
 
-Find event by transaction ID
+Retrieve a specific event
 
-Return a single event
+This endpoint is used for retrieving a specific usage measurement event that has been sent to a customer or a subscription.
 
 ### Example
 
@@ -215,10 +215,10 @@ $apiInstance = new LagoClient\Api\EventsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 12345; // string | Id of the existing transaction
+$transaction_id = transaction_1234567890; // string | This field represents the unique identifier sent for this specific event.
 
 try {
-    $result = $apiInstance->findEvent($id);
+    $result = $apiInstance->findEvent($transaction_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EventsApi->findEvent: ', $e->getMessage(), PHP_EOL;
@@ -229,7 +229,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Id of the existing transaction | |
+| **transaction_id** | **string**| This field represents the unique identifier sent for this specific event. | |
 
 ### Return type
 

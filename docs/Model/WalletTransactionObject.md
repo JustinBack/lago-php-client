@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **lago_wallet_id** | **string** |  |
 **status** | **string** | Status |
 **transaction_type** | **string** | Transaction type |
-**amount** | **float** |  |
-**credit_amount** | **float** |  |
+**amount** | **string** |  |
+**credit_amount** | **string** |  |
 **settled_at** | **\DateTime** |  | [optional]
 **created_at** | **\DateTime** |  |
 

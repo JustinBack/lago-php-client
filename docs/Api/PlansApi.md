@@ -134,7 +134,7 @@ try {
 ## `findAllPlans()`
 
 ```php
-findAllPlans($page, $per_page): \LagoClient\Model\PlansPaginated
+findAllPlans(): \LagoClient\Model\PlansPaginated
 ```
 
 Find plans
@@ -158,11 +158,9 @@ $apiInstance = new LagoClient\Api\PlansApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 
 try {
-    $result = $apiInstance->findAllPlans($page, $per_page);
+    $result = $apiInstance->findAllPlans();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlansApi->findAllPlans: ', $e->getMessage(), PHP_EOL;
@@ -171,10 +169,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 

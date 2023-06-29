@@ -82,12 +82,12 @@ Class | Method | HTTP request | Description
 *AddOnsApi* | [**findAddOn**](docs/Api/AddOnsApi.md#findaddon) | **GET** /add_ons/{code} | Find add-on by code
 *AddOnsApi* | [**findAllAddOns**](docs/Api/AddOnsApi.md#findalladdons) | **GET** /add_ons | Find add-ons
 *AddOnsApi* | [**updateAddOn**](docs/Api/AddOnsApi.md#updateaddon) | **PUT** /add_ons/{code} | Update an existing add-on
-*BillableMetricsApi* | [**createBillableMetric**](docs/Api/BillableMetricsApi.md#createbillablemetric) | **POST** /billable_metrics | Create a new billable metric
+*BillableMetricsApi* | [**createBillableMetric**](docs/Api/BillableMetricsApi.md#createbillablemetric) | **POST** /billable_metrics | Create a billable metric
 *BillableMetricsApi* | [**destroyBillableMetric**](docs/Api/BillableMetricsApi.md#destroybillablemetric) | **DELETE** /billable_metrics/{code} | Delete a billable metric
-*BillableMetricsApi* | [**findAllBillableMetricGroups**](docs/Api/BillableMetricsApi.md#findallbillablemetricgroups) | **GET** /billable_metrics/{code}/groups | Find Billable metric groups
-*BillableMetricsApi* | [**findAllBillableMetrics**](docs/Api/BillableMetricsApi.md#findallbillablemetrics) | **GET** /billable_metrics | Find Billable metrics
-*BillableMetricsApi* | [**findBillableMetric**](docs/Api/BillableMetricsApi.md#findbillablemetric) | **GET** /billable_metrics/{code} | Find billable metric by code
-*BillableMetricsApi* | [**updateBillableMetric**](docs/Api/BillableMetricsApi.md#updatebillablemetric) | **PUT** /billable_metrics/{code} | Update an existing billable metric
+*BillableMetricsApi* | [**findAllBillableMetricGroups**](docs/Api/BillableMetricsApi.md#findallbillablemetricgroups) | **GET** /billable_metrics/{code}/groups | Find a billable metric&#39;s groups
+*BillableMetricsApi* | [**findAllBillableMetrics**](docs/Api/BillableMetricsApi.md#findallbillablemetrics) | **GET** /billable_metrics | List all billable metrics
+*BillableMetricsApi* | [**findBillableMetric**](docs/Api/BillableMetricsApi.md#findbillablemetric) | **GET** /billable_metrics/{code} | Retrieve a billable metric
+*BillableMetricsApi* | [**updateBillableMetric**](docs/Api/BillableMetricsApi.md#updatebillablemetric) | **PUT** /billable_metrics/{code} | Update a billable metric
 *CouponsApi* | [**applyCoupon**](docs/Api/CouponsApi.md#applycoupon) | **POST** /applied_coupons | Apply a coupon to a customer
 *CouponsApi* | [**createCoupon**](docs/Api/CouponsApi.md#createcoupon) | **POST** /coupons | Create a new coupon
 *CouponsApi* | [**destroyCoupon**](docs/Api/CouponsApi.md#destroycoupon) | **DELETE** /coupons/{code} | Delete a coupon
@@ -102,16 +102,16 @@ Class | Method | HTTP request | Description
 *CreditNotesApi* | [**updateCreditNote**](docs/Api/CreditNotesApi.md#updatecreditnote) | **PUT** /credit_notes/{id} | Update an existing credit note
 *CreditNotesApi* | [**voidCreditNote**](docs/Api/CreditNotesApi.md#voidcreditnote) | **PUT** /credit_notes/{id}/void | Void existing credit note
 *CustomersApi* | [**createCustomer**](docs/Api/CustomersApi.md#createcustomer) | **POST** /customers | Create a customer
-*CustomersApi* | [**deleteAppliedCoupon**](docs/Api/CustomersApi.md#deleteappliedcoupon) | **DELETE** /customers/{customer_external_id}/applied_coupons/{applied_coupon_id} | Delete customer&#39;s appplied coupon
+*CustomersApi* | [**deleteAppliedCoupon**](docs/Api/CustomersApi.md#deleteappliedcoupon) | **DELETE** /customers/{external_customer_id}/applied_coupons/{applied_coupon_id} | Delete customer&#39;s appplied coupon
 *CustomersApi* | [**destroyCustomer**](docs/Api/CustomersApi.md#destroycustomer) | **DELETE** /customers/{external_id} | Delete a customer
-*CustomersApi* | [**findAllCustomers**](docs/Api/CustomersApi.md#findallcustomers) | **GET** /customers | Find customers
-*CustomersApi* | [**findCustomer**](docs/Api/CustomersApi.md#findcustomer) | **GET** /customers/{external_id} | Find customer by external ID
-*CustomersApi* | [**findCustomerCurrentUsage**](docs/Api/CustomersApi.md#findcustomercurrentusage) | **GET** /customers/{customer_external_id}/current_usage | Find customer current usage
-*CustomersApi* | [**getCustomerPortalUrl**](docs/Api/CustomersApi.md#getcustomerportalurl) | **GET** /customers/{customer_external_id}/portal_url | Get customer portal URL
-*EventsApi* | [**createBatchEvents**](docs/Api/EventsApi.md#createbatchevents) | **POST** /events/batch | Create batch events
-*EventsApi* | [**createEvent**](docs/Api/EventsApi.md#createevent) | **POST** /events | Create a new event
+*CustomersApi* | [**findAllCustomers**](docs/Api/CustomersApi.md#findallcustomers) | **GET** /customers | List all customers
+*CustomersApi* | [**findCustomer**](docs/Api/CustomersApi.md#findcustomer) | **GET** /customers/{external_id} | Retrieve a customer
+*CustomersApi* | [**findCustomerCurrentUsage**](docs/Api/CustomersApi.md#findcustomercurrentusage) | **GET** /customers/{external_customer_id}/current_usage | Retrieve customer current usage
+*CustomersApi* | [**getCustomerPortalUrl**](docs/Api/CustomersApi.md#getcustomerportalurl) | **GET** /customers/{external_customer_id}/portal_url | Get a customer portal URL
+*EventsApi* | [**createBatchEvents**](docs/Api/EventsApi.md#createbatchevents) | **POST** /events/batch | Batch multiple events
+*EventsApi* | [**createEvent**](docs/Api/EventsApi.md#createevent) | **POST** /events | Send usage events
 *EventsApi* | [**eventEstimateFees**](docs/Api/EventsApi.md#eventestimatefees) | **POST** /events/estimate_fees | Estimate fees for an pay in advance charge
-*EventsApi* | [**findEvent**](docs/Api/EventsApi.md#findevent) | **GET** /events/{id} | Find event by transaction ID
+*EventsApi* | [**findEvent**](docs/Api/EventsApi.md#findevent) | **GET** /events/{transaction_id} | Retrieve a specific event
 *FeesApi* | [**findAllFees**](docs/Api/FeesApi.md#findallfees) | **GET** /fees | Find all fees
 *FeesApi* | [**findFee**](docs/Api/FeesApi.md#findfee) | **GET** /fees/{id} | Find fee by ID
 *FeesApi* | [**updateFee**](docs/Api/FeesApi.md#updatefee) | **PUT** /fees/{id} | Update an existing fee
@@ -131,8 +131,8 @@ Class | Method | HTTP request | Description
 *PlansApi* | [**updatePlan**](docs/Api/PlansApi.md#updateplan) | **PUT** /plans/{code} | Update an existing plan
 *SubscriptionsApi* | [**createSubscription**](docs/Api/SubscriptionsApi.md#createsubscription) | **POST** /subscriptions | Assign a plan to a customer
 *SubscriptionsApi* | [**destroySubscription**](docs/Api/SubscriptionsApi.md#destroysubscription) | **DELETE** /subscriptions/{external_id} | Terminate a subscription
-*SubscriptionsApi* | [**findAllSubscriptions**](docs/Api/SubscriptionsApi.md#findallsubscriptions) | **GET** /subscriptions | Find subscriptions
-*SubscriptionsApi* | [**updateSubscription**](docs/Api/SubscriptionsApi.md#updatesubscription) | **PUT** /subscriptions/{external_id} | Update an existing subscription
+*SubscriptionsApi* | [**findAllSubscriptions**](docs/Api/SubscriptionsApi.md#findallsubscriptions) | **GET** /subscriptions | List all subscriptions
+*SubscriptionsApi* | [**updateSubscription**](docs/Api/SubscriptionsApi.md#updatesubscription) | **PUT** /subscriptions/{external_id} | Update a subscription
 *WalletsApi* | [**createWallet**](docs/Api/WalletsApi.md#createwallet) | **POST** /wallets | Create a new wallet
 *WalletsApi* | [**createWalletTransaction**](docs/Api/WalletsApi.md#createwallettransaction) | **POST** /wallet_transactions | Create a new wallet transaction
 *WalletsApi* | [**destroyWallet**](docs/Api/WalletsApi.md#destroywallet) | **DELETE** /wallets/{id} | Delete a wallet
@@ -149,12 +149,12 @@ Class | Method | HTTP request | Description
 - [AddOnInputAddOn](docs/Model/AddOnInputAddOn.md)
 - [AddOnObject](docs/Model/AddOnObject.md)
 - [AddOnsPaginated](docs/Model/AddOnsPaginated.md)
-- [ApiResponseBadRequest](docs/Model/ApiResponseBadRequest.md)
-- [ApiResponseForbidden](docs/Model/ApiResponseForbidden.md)
-- [ApiResponseNotAllowed](docs/Model/ApiResponseNotAllowed.md)
-- [ApiResponseNotFound](docs/Model/ApiResponseNotFound.md)
-- [ApiResponseUnauthorized](docs/Model/ApiResponseUnauthorized.md)
-- [ApiResponseUnprocessableEntity](docs/Model/ApiResponseUnprocessableEntity.md)
+- [ApiErrorBadRequest](docs/Model/ApiErrorBadRequest.md)
+- [ApiErrorForbidden](docs/Model/ApiErrorForbidden.md)
+- [ApiErrorNotAllowed](docs/Model/ApiErrorNotAllowed.md)
+- [ApiErrorNotFound](docs/Model/ApiErrorNotFound.md)
+- [ApiErrorUnauthorized](docs/Model/ApiErrorUnauthorized.md)
+- [ApiErrorUnprocessableEntity](docs/Model/ApiErrorUnprocessableEntity.md)
 - [AppliedAddOn](docs/Model/AppliedAddOn.md)
 - [AppliedAddOnInput](docs/Model/AppliedAddOnInput.md)
 - [AppliedAddOnInputAppliedAddOn](docs/Model/AppliedAddOnInputAppliedAddOn.md)
@@ -165,22 +165,18 @@ Class | Method | HTTP request | Description
 - [AppliedCouponObject](docs/Model/AppliedCouponObject.md)
 - [AppliedCouponObjectExtended](docs/Model/AppliedCouponObjectExtended.md)
 - [AppliedCouponsPaginated](docs/Model/AppliedCouponsPaginated.md)
-- [BatchEventInput](docs/Model/BatchEventInput.md)
-- [BatchEventInputEvent](docs/Model/BatchEventInputEvent.md)
 - [BillableMetric](docs/Model/BillableMetric.md)
+- [BillableMetricBaseInput](docs/Model/BillableMetricBaseInput.md)
+- [BillableMetricCreateInput](docs/Model/BillableMetricCreateInput.md)
+- [BillableMetricCreateInputBillableMetric](docs/Model/BillableMetricCreateInputBillableMetric.md)
 - [BillableMetricGroup](docs/Model/BillableMetricGroup.md)
 - [BillableMetricGroupValuesInner](docs/Model/BillableMetricGroupValuesInner.md)
-- [BillableMetricInput](docs/Model/BillableMetricInput.md)
-- [BillableMetricInputBillableMetric](docs/Model/BillableMetricInputBillableMetric.md)
+- [BillableMetricGroupValuesInnerOneOf](docs/Model/BillableMetricGroupValuesInnerOneOf.md)
 - [BillableMetricObject](docs/Model/BillableMetricObject.md)
+- [BillableMetricUpdateInput](docs/Model/BillableMetricUpdateInput.md)
 - [BillableMetricsPaginated](docs/Model/BillableMetricsPaginated.md)
-- [BillingConfigurationCustomer](docs/Model/BillingConfigurationCustomer.md)
 - [BillingConfigurationOrganization](docs/Model/BillingConfigurationOrganization.md)
 - [ChargeObject](docs/Model/ChargeObject.md)
-- [ChargeUsageObject](docs/Model/ChargeUsageObject.md)
-- [ChargeUsageObjectBillableMetric](docs/Model/ChargeUsageObjectBillableMetric.md)
-- [ChargeUsageObjectCharge](docs/Model/ChargeUsageObjectCharge.md)
-- [ChargeUsageObjectGroupsInner](docs/Model/ChargeUsageObjectGroupsInner.md)
 - [Coupon](docs/Model/Coupon.md)
 - [CouponInput](docs/Model/CouponInput.md)
 - [CouponInputCoupon](docs/Model/CouponInputCoupon.md)
@@ -199,16 +195,25 @@ Class | Method | HTTP request | Description
 - [CreditObject](docs/Model/CreditObject.md)
 - [CreditObjectInvoice](docs/Model/CreditObjectInvoice.md)
 - [CreditObjectItem](docs/Model/CreditObjectItem.md)
+- [Currency](docs/Model/Currency.md)
 - [Customer](docs/Model/Customer.md)
-- [CustomerInput](docs/Model/CustomerInput.md)
-- [CustomerInputCustomer](docs/Model/CustomerInputCustomer.md)
-- [CustomerInputCustomerMetadataInner](docs/Model/CustomerInputCustomerMetadataInner.md)
-- [CustomerMetadataObject](docs/Model/CustomerMetadataObject.md)
+- [CustomerBillingConfiguration](docs/Model/CustomerBillingConfiguration.md)
+- [CustomerChargeUsageObject](docs/Model/CustomerChargeUsageObject.md)
+- [CustomerChargeUsageObjectBillableMetric](docs/Model/CustomerChargeUsageObjectBillableMetric.md)
+- [CustomerChargeUsageObjectCharge](docs/Model/CustomerChargeUsageObjectCharge.md)
+- [CustomerChargeUsageObjectGroupsInner](docs/Model/CustomerChargeUsageObjectGroupsInner.md)
+- [CustomerCreateInput](docs/Model/CustomerCreateInput.md)
+- [CustomerCreateInputCustomer](docs/Model/CustomerCreateInputCustomer.md)
+- [CustomerCreateInputCustomerMetadataInner](docs/Model/CustomerCreateInputCustomerMetadataInner.md)
+- [CustomerMetadata](docs/Model/CustomerMetadata.md)
 - [CustomerObject](docs/Model/CustomerObject.md)
 - [CustomerUsage](docs/Model/CustomerUsage.md)
 - [CustomerUsageObject](docs/Model/CustomerUsageObject.md)
 - [CustomersPaginated](docs/Model/CustomersPaginated.md)
 - [Event](docs/Model/Event.md)
+- [EventBatchInput](docs/Model/EventBatchInput.md)
+- [EventBatchInputEvent](docs/Model/EventBatchInputEvent.md)
+- [EventBatchInputEventProperties](docs/Model/EventBatchInputEventProperties.md)
 - [EventEstimateFeesInput](docs/Model/EventEstimateFeesInput.md)
 - [EventEstimateFeesInputEvent](docs/Model/EventEstimateFeesInputEvent.md)
 - [EventInput](docs/Model/EventInput.md)
@@ -255,6 +260,7 @@ Class | Method | HTTP request | Description
 - [SubscriptionUpdateInput](docs/Model/SubscriptionUpdateInput.md)
 - [SubscriptionUpdateInputSubscription](docs/Model/SubscriptionUpdateInputSubscription.md)
 - [SubscriptionsPaginated](docs/Model/SubscriptionsPaginated.md)
+- [Timezone](docs/Model/Timezone.md)
 - [Wallet](docs/Model/Wallet.md)
 - [WalletInput](docs/Model/WalletInput.md)
 - [WalletInputWallet](docs/Model/WalletInputWallet.md)
@@ -292,5 +298,5 @@ tech@getlago.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `0.36.0-beta`
+- API version: `0.37.0-beta`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

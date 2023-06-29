@@ -4,23 +4,23 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createBillableMetric()**](BillableMetricsApi.md#createBillableMetric) | **POST** /billable_metrics | Create a new billable metric |
+| [**createBillableMetric()**](BillableMetricsApi.md#createBillableMetric) | **POST** /billable_metrics | Create a billable metric |
 | [**destroyBillableMetric()**](BillableMetricsApi.md#destroyBillableMetric) | **DELETE** /billable_metrics/{code} | Delete a billable metric |
-| [**findAllBillableMetricGroups()**](BillableMetricsApi.md#findAllBillableMetricGroups) | **GET** /billable_metrics/{code}/groups | Find Billable metric groups |
-| [**findAllBillableMetrics()**](BillableMetricsApi.md#findAllBillableMetrics) | **GET** /billable_metrics | Find Billable metrics |
-| [**findBillableMetric()**](BillableMetricsApi.md#findBillableMetric) | **GET** /billable_metrics/{code} | Find billable metric by code |
-| [**updateBillableMetric()**](BillableMetricsApi.md#updateBillableMetric) | **PUT** /billable_metrics/{code} | Update an existing billable metric |
+| [**findAllBillableMetricGroups()**](BillableMetricsApi.md#findAllBillableMetricGroups) | **GET** /billable_metrics/{code}/groups | Find a billable metric&#39;s groups |
+| [**findAllBillableMetrics()**](BillableMetricsApi.md#findAllBillableMetrics) | **GET** /billable_metrics | List all billable metrics |
+| [**findBillableMetric()**](BillableMetricsApi.md#findBillableMetric) | **GET** /billable_metrics/{code} | Retrieve a billable metric |
+| [**updateBillableMetric()**](BillableMetricsApi.md#updateBillableMetric) | **PUT** /billable_metrics/{code} | Update a billable metric |
 
 
 ## `createBillableMetric()`
 
 ```php
-createBillableMetric($billable_metric_input): \LagoClient\Model\BillableMetric
+createBillableMetric($billable_metric_create_input): \LagoClient\Model\BillableMetric
 ```
 
-Create a new billable metric
+Create a billable metric
 
-Create a new billable metric
+This endpoint creates a new billable metric representing a pricing component of your application.
 
 ### Example
 
@@ -39,10 +39,10 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$billable_metric_input = new \LagoClient\Model\BillableMetricInput(); // \LagoClient\Model\BillableMetricInput | Billable metric payload
+$billable_metric_create_input = new \LagoClient\Model\BillableMetricCreateInput(); // \LagoClient\Model\BillableMetricCreateInput | Billable metric payload
 
 try {
-    $result = $apiInstance->createBillableMetric($billable_metric_input);
+    $result = $apiInstance->createBillableMetric($billable_metric_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableMetricsApi->createBillableMetric: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **billable_metric_input** | [**\LagoClient\Model\BillableMetricInput**](../Model/BillableMetricInput.md)| Billable metric payload | |
+| **billable_metric_create_input** | [**\LagoClient\Model\BillableMetricCreateInput**](../Model/BillableMetricCreateInput.md)| Billable metric payload | |
 
 ### Return type
 
@@ -80,7 +80,7 @@ destroyBillableMetric($code): \LagoClient\Model\BillableMetric
 
 Delete a billable metric
 
-Delete a billable metric
+This endpoint deletes an existing billable metric representing a pricing component of your application.
 
 ### Example
 
@@ -99,7 +99,7 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing billable metric
+$code = storage; // string | Code of the existing billable metric.
 
 try {
     $result = $apiInstance->destroyBillableMetric($code);
@@ -113,7 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing billable metric | |
+| **code** | **string**| Code of the existing billable metric. | |
 
 ### Return type
 
@@ -135,12 +135,12 @@ try {
 ## `findAllBillableMetricGroups()`
 
 ```php
-findAllBillableMetricGroups($code, $page, $per_page): \LagoClient\Model\GroupsPaginated
+findAllBillableMetricGroups($code): \LagoClient\Model\GroupsPaginated
 ```
 
-Find Billable metric groups
+Find a billable metric's groups
 
-Find all billable metric groups in certain organisation
+This endpoint retrieves all groups for a billable metric.
 
 ### Example
 
@@ -159,12 +159,10 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing billable metric
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
+$code = example_code; // string | Code of the existing billable metric.
 
 try {
-    $result = $apiInstance->findAllBillableMetricGroups($code, $page, $per_page);
+    $result = $apiInstance->findAllBillableMetricGroups($code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableMetricsApi->findAllBillableMetricGroups: ', $e->getMessage(), PHP_EOL;
@@ -175,9 +173,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing billable metric | |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+| **code** | **string**| Code of the existing billable metric. | |
 
 ### Return type
 
@@ -199,12 +195,12 @@ try {
 ## `findAllBillableMetrics()`
 
 ```php
-findAllBillableMetrics($page, $per_page): \LagoClient\Model\BillableMetricsPaginated
+findAllBillableMetrics(): \LagoClient\Model\BillableMetricsPaginated
 ```
 
-Find Billable metrics
+List all billable metrics
 
-Find all billable metrics in certain organisation
+This endpoint retrieves all existing billable metrics that represent pricing components of your application.
 
 ### Example
 
@@ -223,11 +219,9 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 
 try {
-    $result = $apiInstance->findAllBillableMetrics($page, $per_page);
+    $result = $apiInstance->findAllBillableMetrics();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableMetricsApi->findAllBillableMetrics: ', $e->getMessage(), PHP_EOL;
@@ -236,10 +230,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -264,9 +255,9 @@ try {
 findBillableMetric($code): \LagoClient\Model\BillableMetric
 ```
 
-Find billable metric by code
+Retrieve a billable metric
 
-Return a single billable metric
+This endpoint retrieves an existing billable metric that represents a pricing component of your application. The billable metric is identified by its unique code.
 
 ### Example
 
@@ -285,7 +276,7 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing billable metric
+$code = storage; // string | Code of the existing billable metric.
 
 try {
     $result = $apiInstance->findBillableMetric($code);
@@ -299,7 +290,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing billable metric | |
+| **code** | **string**| Code of the existing billable metric. | |
 
 ### Return type
 
@@ -321,12 +312,12 @@ try {
 ## `updateBillableMetric()`
 
 ```php
-updateBillableMetric($code, $billable_metric_input): \LagoClient\Model\BillableMetric
+updateBillableMetric($code, $billable_metric_update_input): \LagoClient\Model\BillableMetric
 ```
 
-Update an existing billable metric
+Update a billable metric
 
-Update an existing billable metric by code
+This endpoint updates an existing billable metric representing a pricing component of your application.
 
 ### Example
 
@@ -345,11 +336,11 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing billable metric
-$billable_metric_input = new \LagoClient\Model\BillableMetricInput(); // \LagoClient\Model\BillableMetricInput | Update an existing billable metric
+$code = storage; // string | Code of the existing billable metric.
+$billable_metric_update_input = new \LagoClient\Model\BillableMetricUpdateInput(); // \LagoClient\Model\BillableMetricUpdateInput | Billable metric payload
 
 try {
-    $result = $apiInstance->updateBillableMetric($code, $billable_metric_input);
+    $result = $apiInstance->updateBillableMetric($code, $billable_metric_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableMetricsApi->updateBillableMetric: ', $e->getMessage(), PHP_EOL;
@@ -360,8 +351,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing billable metric | |
-| **billable_metric_input** | [**\LagoClient\Model\BillableMetricInput**](../Model/BillableMetricInput.md)| Update an existing billable metric | |
+| **code** | **string**| Code of the existing billable metric. | |
+| **billable_metric_update_input** | [**\LagoClient\Model\BillableMetricUpdateInput**](../Model/BillableMetricUpdateInput.md)| Billable metric payload | |
 
 ### Return type
 

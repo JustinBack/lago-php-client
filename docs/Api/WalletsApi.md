@@ -196,7 +196,7 @@ try {
 ## `findAllWalletTransactions()`
 
 ```php
-findAllWalletTransactions($id, $page, $per_page, $status, $transaction_type): \LagoClient\Model\WalletTransactionsPaginated
+findAllWalletTransactions($id, $status, $transaction_type): \LagoClient\Model\WalletTransactionsPaginated
 ```
 
 Find wallet transactions
@@ -221,13 +221,11 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     $config
 );
 $id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Lago ID of the existing wallet
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 $status = pending; // string | Status (pending or settled)
 $transaction_type = inbound; // string | Transaction Type (inbound or outbound)
 
 try {
-    $result = $apiInstance->findAllWalletTransactions($id, $page, $per_page, $status, $transaction_type);
+    $result = $apiInstance->findAllWalletTransactions($id, $status, $transaction_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->findAllWalletTransactions: ', $e->getMessage(), PHP_EOL;
@@ -239,8 +237,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Lago ID of the existing wallet | |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
 | **status** | **string**| Status (pending or settled) | [optional] |
 | **transaction_type** | **string**| Transaction Type (inbound or outbound) | [optional] |
 
@@ -264,7 +260,7 @@ try {
 ## `findAllWallets()`
 
 ```php
-findAllWallets($external_customer_id, $page, $per_page): \LagoClient\Model\WalletsPaginated
+findAllWallets($external_customer_id): \LagoClient\Model\WalletsPaginated
 ```
 
 Find wallets
@@ -289,11 +285,9 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     $config
 );
 $external_customer_id = 12345; // string | External customer ID
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 
 try {
-    $result = $apiInstance->findAllWallets($external_customer_id, $page, $per_page);
+    $result = $apiInstance->findAllWallets($external_customer_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->findAllWallets: ', $e->getMessage(), PHP_EOL;
@@ -305,8 +299,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **external_customer_id** | **string**| External customer ID | |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
 
 ### Return type
 

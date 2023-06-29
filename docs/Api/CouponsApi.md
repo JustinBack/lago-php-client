@@ -196,7 +196,7 @@ try {
 ## `findAllAppliedCoupons()`
 
 ```php
-findAllAppliedCoupons($page, $per_page, $status, $external_customer_id): \LagoClient\Model\AppliedCouponsPaginated
+findAllAppliedCoupons($status, $external_customer_id): \LagoClient\Model\AppliedCouponsPaginated
 ```
 
 Find Applied Coupons
@@ -220,13 +220,11 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 $status = 'status_example'; // string | Applied coupon status
 $external_customer_id = 12345; // string | External customer ID
 
 try {
-    $result = $apiInstance->findAllAppliedCoupons($page, $per_page, $status, $external_customer_id);
+    $result = $apiInstance->findAllAppliedCoupons($status, $external_customer_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponsApi->findAllAppliedCoupons: ', $e->getMessage(), PHP_EOL;
@@ -237,8 +235,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
 | **status** | **string**| Applied coupon status | [optional] |
 | **external_customer_id** | **string**| External customer ID | [optional] |
 
@@ -262,7 +258,7 @@ try {
 ## `findAllCoupons()`
 
 ```php
-findAllCoupons($page, $per_page): \LagoClient\Model\CouponsPaginated
+findAllCoupons(): \LagoClient\Model\CouponsPaginated
 ```
 
 Find Coupons
@@ -286,11 +282,9 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 
 try {
-    $result = $apiInstance->findAllCoupons($page, $per_page);
+    $result = $apiInstance->findAllCoupons();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponsApi->findAllCoupons: ', $e->getMessage(), PHP_EOL;
@@ -299,10 +293,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 

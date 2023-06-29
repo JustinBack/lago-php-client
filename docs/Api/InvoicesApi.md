@@ -197,7 +197,7 @@ try {
 ## `findAllInvoices()`
 
 ```php
-findAllInvoices($page, $per_page, $external_customer_id, $issuing_date_from, $issuing_date_to, $status): \LagoClient\Model\InvoicesPaginated
+findAllInvoices($external_customer_id, $issuing_date_from, $issuing_date_to, $status): \LagoClient\Model\InvoicesPaginated
 ```
 
 Find all invoices
@@ -221,15 +221,13 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 $external_customer_id = 12345; // string | External customer ID
 $issuing_date_from = Fri Jul 08 00:00:00 UTC 2022; // \DateTime | Date from
 $issuing_date_to = Tue Aug 09 00:00:00 UTC 2022; // \DateTime | Date to
 $status = 'status_example'; // string | Status
 
 try {
-    $result = $apiInstance->findAllInvoices($page, $per_page, $external_customer_id, $issuing_date_from, $issuing_date_to, $status);
+    $result = $apiInstance->findAllInvoices($external_customer_id, $issuing_date_from, $issuing_date_to, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->findAllInvoices: ', $e->getMessage(), PHP_EOL;
@@ -240,8 +238,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
 | **external_customer_id** | **string**| External customer ID | [optional] |
 | **issuing_date_from** | **\DateTime**| Date from | [optional] |
 | **issuing_date_to** | **\DateTime**| Date to | [optional] |
@@ -437,7 +433,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

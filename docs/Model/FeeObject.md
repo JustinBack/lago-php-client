@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **amount_currency** | **string** |  |
 **vat_amount_cents** | **int** |  |
 **vat_amount_currency** | **string** |  |
-**units** | **float** |  |
+**units** | **string** |  |
 **total_amount_cents** | **int** |  | [optional]
 **total_amount_currency** | **string** |  | [optional]
 **events_count** | **int** |  | [optional]

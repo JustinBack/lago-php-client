@@ -6,8 +6,8 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 | ------------- | ------------- | ------------- |
 | [**createSubscription()**](SubscriptionsApi.md#createSubscription) | **POST** /subscriptions | Assign a plan to a customer |
 | [**destroySubscription()**](SubscriptionsApi.md#destroySubscription) | **DELETE** /subscriptions/{external_id} | Terminate a subscription |
-| [**findAllSubscriptions()**](SubscriptionsApi.md#findAllSubscriptions) | **GET** /subscriptions | Find subscriptions |
-| [**updateSubscription()**](SubscriptionsApi.md#updateSubscription) | **PUT** /subscriptions/{external_id} | Update an existing subscription |
+| [**findAllSubscriptions()**](SubscriptionsApi.md#findAllSubscriptions) | **GET** /subscriptions | List all subscriptions |
+| [**updateSubscription()**](SubscriptionsApi.md#updateSubscription) | **PUT** /subscriptions/{external_id} | Update a subscription |
 
 
 ## `createSubscription()`
@@ -18,7 +18,7 @@ createSubscription($subscription_create_input): \LagoClient\Model\Subscription
 
 Assign a plan to a customer
 
-Assign a plan to a customer
+This endpoint assigns a plan to a customer, creating or modifying a subscription. Ideal for initial subscriptions or plan changes (upgrades/downgrades).
 
 ### Example
 
@@ -78,7 +78,7 @@ destroySubscription($external_id): \LagoClient\Model\Subscription
 
 Terminate a subscription
 
-Terminate a subscription
+This endpoint allows you to terminate a subscription.
 
 ### Example
 
@@ -97,7 +97,7 @@ $apiInstance = new LagoClient\Api\SubscriptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_id = example_id; // string | External ID of the existing subscription
+$external_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External ID of the existing subscription
 
 try {
     $result = $apiInstance->destroySubscription($external_id);
@@ -133,12 +133,12 @@ try {
 ## `findAllSubscriptions()`
 
 ```php
-findAllSubscriptions($page, $per_page, $external_customer_id, $plan_code): \LagoClient\Model\SubscriptionsPaginated
+findAllSubscriptions($external_customer_id, $plan_code): \LagoClient\Model\SubscriptionsPaginated
 ```
 
-Find subscriptions
+List all subscriptions
 
-Find all suscriptions for certain customer
+This endpoint retrieves all active subscriptions.
 
 ### Example
 
@@ -157,13 +157,11 @@ $apiInstance = new LagoClient\Api\SubscriptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
-$external_customer_id = 12345; // string | External customer ID
-$plan_code = example_code; // string | Code of the plan attached to the subscription
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | The customer external unique identifier (provided by your own application)
+$plan_code = premium; // string | The unique code representing the plan to be attached to the customer. This code must correspond to the code property of one of the active plans.
 
 try {
-    $result = $apiInstance->findAllSubscriptions($page, $per_page, $external_customer_id, $plan_code);
+    $result = $apiInstance->findAllSubscriptions($external_customer_id, $plan_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->findAllSubscriptions: ', $e->getMessage(), PHP_EOL;
@@ -174,10 +172,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
-| **external_customer_id** | **string**| External customer ID | [optional] |
-| **plan_code** | **string**| Code of the plan attached to the subscription | [optional] |
+| **external_customer_id** | **string**| The customer external unique identifier (provided by your own application) | [optional] |
+| **plan_code** | **string**| The unique code representing the plan to be attached to the customer. This code must correspond to the code property of one of the active plans. | [optional] |
 
 ### Return type
 
@@ -202,9 +198,9 @@ try {
 updateSubscription($external_id, $subscription_update_input): \LagoClient\Model\Subscription
 ```
 
-Update an existing subscription
+Update a subscription
 
-Update an existing subscription by external ID
+This endpoint allows you to update a subscription.
 
 ### Example
 
@@ -223,7 +219,7 @@ $apiInstance = new LagoClient\Api\SubscriptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_id = example_id; // string | External ID of the existing subscription
+$external_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External ID of the existing subscription
 $subscription_update_input = new \LagoClient\Model\SubscriptionUpdateInput(); // \LagoClient\Model\SubscriptionUpdateInput | Update an existing subscription
 
 try {

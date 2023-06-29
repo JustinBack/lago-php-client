@@ -135,7 +135,7 @@ try {
 ## `findAllCreditNotes()`
 
 ```php
-findAllCreditNotes($page, $per_page, $external_customer_id): \LagoClient\Model\CreditNotes
+findAllCreditNotes($external_customer_id): \LagoClient\Model\CreditNotes
 ```
 
 Find Credit notes
@@ -159,12 +159,10 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 $external_customer_id = 12345; // string | External customer ID
 
 try {
-    $result = $apiInstance->findAllCreditNotes($page, $per_page, $external_customer_id);
+    $result = $apiInstance->findAllCreditNotes($external_customer_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->findAllCreditNotes: ', $e->getMessage(), PHP_EOL;
@@ -175,8 +173,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
 | **external_customer_id** | **string**| External customer ID | [optional] |
 
 ### Return type

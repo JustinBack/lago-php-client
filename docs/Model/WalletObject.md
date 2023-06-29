@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **status** | **string** | Status |
 **currency** | **string** |  |
 **name** | **string** |  | [optional]
-**rate_amount** | **float** |  |
-**credits_balance** | **float** |  |
-**balance** | **float** |  |
+**rate_amount** | **string** |  |
+**credits_balance** | **string** |  |
+**balance** | **string** |  |
 **balance_cents** | **int** |  |
-**consumed_credits** | **float** |  |
+**consumed_credits** | **string** |  |
 **created_at** | **\DateTime** |  |
 **expiration_at** | **\DateTime** |  | [optional]
 **last_balance_sync_at** | **\DateTime** |  | [optional]

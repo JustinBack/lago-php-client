@@ -255,7 +255,7 @@ try {
 ## `findAllAddOns()`
 
 ```php
-findAllAddOns($page, $per_page): \LagoClient\Model\AddOnsPaginated
+findAllAddOns(): \LagoClient\Model\AddOnsPaginated
 ```
 
 Find add-ons
@@ -279,11 +279,9 @@ $apiInstance = new LagoClient\Api\AddOnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 
 try {
-    $result = $apiInstance->findAllAddOns($page, $per_page);
+    $result = $apiInstance->findAllAddOns();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddOnsApi->findAllAddOns: ', $e->getMessage(), PHP_EOL;
@@ -292,10 +290,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 

@@ -5,23 +5,23 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createCustomer()**](CustomersApi.md#createCustomer) | **POST** /customers | Create a customer |
-| [**deleteAppliedCoupon()**](CustomersApi.md#deleteAppliedCoupon) | **DELETE** /customers/{customer_external_id}/applied_coupons/{applied_coupon_id} | Delete customer&#39;s appplied coupon |
+| [**deleteAppliedCoupon()**](CustomersApi.md#deleteAppliedCoupon) | **DELETE** /customers/{external_customer_id}/applied_coupons/{applied_coupon_id} | Delete customer&#39;s appplied coupon |
 | [**destroyCustomer()**](CustomersApi.md#destroyCustomer) | **DELETE** /customers/{external_id} | Delete a customer |
-| [**findAllCustomers()**](CustomersApi.md#findAllCustomers) | **GET** /customers | Find customers |
-| [**findCustomer()**](CustomersApi.md#findCustomer) | **GET** /customers/{external_id} | Find customer by external ID |
-| [**findCustomerCurrentUsage()**](CustomersApi.md#findCustomerCurrentUsage) | **GET** /customers/{customer_external_id}/current_usage | Find customer current usage |
-| [**getCustomerPortalUrl()**](CustomersApi.md#getCustomerPortalUrl) | **GET** /customers/{customer_external_id}/portal_url | Get customer portal URL |
+| [**findAllCustomers()**](CustomersApi.md#findAllCustomers) | **GET** /customers | List all customers |
+| [**findCustomer()**](CustomersApi.md#findCustomer) | **GET** /customers/{external_id} | Retrieve a customer |
+| [**findCustomerCurrentUsage()**](CustomersApi.md#findCustomerCurrentUsage) | **GET** /customers/{external_customer_id}/current_usage | Retrieve customer current usage |
+| [**getCustomerPortalUrl()**](CustomersApi.md#getCustomerPortalUrl) | **GET** /customers/{external_customer_id}/portal_url | Get a customer portal URL |
 
 
 ## `createCustomer()`
 
 ```php
-createCustomer($customer_input): \LagoClient\Model\Customer
+createCustomer($customer_create_input): \LagoClient\Model\Customer
 ```
 
 Create a customer
 
-Create a new customer
+This endpoint creates a new customer.
 
 ### Example
 
@@ -40,10 +40,10 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_input = new \LagoClient\Model\CustomerInput(); // \LagoClient\Model\CustomerInput | Customer payload
+$customer_create_input = new \LagoClient\Model\CustomerCreateInput(); // \LagoClient\Model\CustomerCreateInput | Customer payload
 
 try {
-    $result = $apiInstance->createCustomer($customer_input);
+    $result = $apiInstance->createCustomer($customer_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomersApi->createCustomer: ', $e->getMessage(), PHP_EOL;
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_input** | [**\LagoClient\Model\CustomerInput**](../Model/CustomerInput.md)| Customer payload | |
+| **customer_create_input** | [**\LagoClient\Model\CustomerCreateInput**](../Model/CustomerCreateInput.md)| Customer payload | |
 
 ### Return type
 
@@ -76,7 +76,7 @@ try {
 ## `deleteAppliedCoupon()`
 
 ```php
-deleteAppliedCoupon($customer_external_id, $applied_coupon_id): \LagoClient\Model\AppliedCoupon
+deleteAppliedCoupon($external_customer_id, $applied_coupon_id): \LagoClient\Model\AppliedCoupon
 ```
 
 Delete customer's appplied coupon
@@ -100,11 +100,11 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_external_id = 12345; // string | External ID of the existing customer
+$external_customer_id = 12345; // string | External ID of the existing customer
 $applied_coupon_id = 54321; // string | Applied Coupon Lago ID
 
 try {
-    $result = $apiInstance->deleteAppliedCoupon($customer_external_id, $applied_coupon_id);
+    $result = $apiInstance->deleteAppliedCoupon($external_customer_id, $applied_coupon_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomersApi->deleteAppliedCoupon: ', $e->getMessage(), PHP_EOL;
@@ -115,7 +115,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_external_id** | **string**| External ID of the existing customer | |
+| **external_customer_id** | **string**| External ID of the existing customer | |
 | **applied_coupon_id** | **string**| Applied Coupon Lago ID | |
 
 ### Return type
@@ -143,7 +143,7 @@ destroyCustomer($external_id): \LagoClient\Model\Customer
 
 Delete a customer
 
-Return the deleted customer
+This endpoint deletes an existing customer.
 
 ### Example
 
@@ -162,7 +162,7 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_id = 12345; // string | External ID of the existing customer
+$external_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External ID of the existing customer
 
 try {
     $result = $apiInstance->destroyCustomer($external_id);
@@ -198,12 +198,12 @@ try {
 ## `findAllCustomers()`
 
 ```php
-findAllCustomers($page, $per_page): \LagoClient\Model\CustomersPaginated
+findAllCustomers(): \LagoClient\Model\CustomersPaginated
 ```
 
-Find customers
+List all customers
 
-Find all customers in certain organisation
+This endpoint retrieves all existing customers.
 
 ### Example
 
@@ -222,11 +222,9 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
 
 try {
-    $result = $apiInstance->findAllCustomers($page, $per_page);
+    $result = $apiInstance->findAllCustomers();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomersApi->findAllCustomers: ', $e->getMessage(), PHP_EOL;
@@ -235,10 +233,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -263,9 +258,9 @@ try {
 findCustomer($external_id): \LagoClient\Model\Customer
 ```
 
-Find customer by external ID
+Retrieve a customer
 
-Return a single customer
+This endpoint retrieves an existing customer.
 
 ### Example
 
@@ -284,7 +279,7 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_id = 12345; // string | External ID of the existing customer
+$external_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External ID of the existing customer
 
 try {
     $result = $apiInstance->findCustomer($external_id);
@@ -320,12 +315,12 @@ try {
 ## `findCustomerCurrentUsage()`
 
 ```php
-findCustomerCurrentUsage($customer_external_id, $external_subscription_id): \LagoClient\Model\CustomerUsage
+findCustomerCurrentUsage($external_customer_id, $external_subscription_id): \LagoClient\Model\CustomerUsage
 ```
 
-Find customer current usage
+Retrieve customer current usage
 
-Return a customer current usage
+This endpoint enables the retrieval of the usage-based billing data for a customer within the current period.
 
 ### Example
 
@@ -344,11 +339,11 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_external_id = 12345; // string | External ID of the existing customer
-$external_subscription_id = 54321; // string | External subscription ID
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | The customer external unique identifier (provided by your own application).
+$external_subscription_id = sub_1234567890; // string | The unique identifier of the subscription within your application.
 
 try {
-    $result = $apiInstance->findCustomerCurrentUsage($customer_external_id, $external_subscription_id);
+    $result = $apiInstance->findCustomerCurrentUsage($external_customer_id, $external_subscription_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomersApi->findCustomerCurrentUsage: ', $e->getMessage(), PHP_EOL;
@@ -359,8 +354,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_external_id** | **string**| External ID of the existing customer | |
-| **external_subscription_id** | **string**| External subscription ID | |
+| **external_customer_id** | **string**| The customer external unique identifier (provided by your own application). | |
+| **external_subscription_id** | **string**| The unique identifier of the subscription within your application. | |
 
 ### Return type
 
@@ -382,12 +377,12 @@ try {
 ## `getCustomerPortalUrl()`
 
 ```php
-getCustomerPortalUrl($customer_external_id): \LagoClient\Model\GetCustomerPortalUrl200Response
+getCustomerPortalUrl($external_customer_id): \LagoClient\Model\GetCustomerPortalUrl200Response
 ```
 
-Get customer portal URL
+Get a customer portal URL
 
-Get customer portal URL
+Retrieves an embeddable link for displaying a customer portal.  This endpoint allows you to fetch the URL that can be embedded to provide customers access to a dedicated portal
 
 ### Example
 
@@ -406,10 +401,10 @@ $apiInstance = new LagoClient\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_external_id = 12345; // string | External ID of the existing customer
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External ID of the existing customer
 
 try {
-    $result = $apiInstance->getCustomerPortalUrl($customer_external_id);
+    $result = $apiInstance->getCustomerPortalUrl($external_customer_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomersApi->getCustomerPortalUrl: ', $e->getMessage(), PHP_EOL;
@@ -420,7 +415,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_external_id** | **string**| External ID of the existing customer | |
+| **external_customer_id** | **string**| External ID of the existing customer | |
 
 ### Return type
 

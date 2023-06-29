@@ -36,8 +36,8 @@ $apiInstance = new LagoClient\Api\FeesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 2; // int | Number of page
-$per_page = 20; // int | Number of records per page
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 $external_customer_id = 12345; // string | External customer ID
 $external_subscription_id = 12345; // string | External subscription ID
 $currency = EUR; // string | Amount currency
@@ -65,8 +65,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Number of page | [optional] |
-| **per_page** | **int**| Number of records per page | [optional] |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 | **external_customer_id** | **string**| External customer ID | [optional] |
 | **external_subscription_id** | **string**| External subscription ID | [optional] |
 | **currency** | **string**| Amount currency | [optional] |
