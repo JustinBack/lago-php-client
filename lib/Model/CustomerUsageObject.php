@@ -62,11 +62,11 @@ class CustomerUsageObject implements ModelInterface, ArrayAccess, \JsonSerializa
         'to_datetime' => '\DateTime',
         'issuing_date' => '\DateTime',
         'amount_cents' => 'int',
-        'amount_currency' => 'Currency',
+        'amount_currency' => '\LagoClient\Model\Currency',
         'total_amount_cents' => 'int',
-        'total_amount_currency' => 'Currency',
+        'total_amount_currency' => '\LagoClient\Model\Currency',
         'vat_amount_cents' => 'int',
-        'vat_amount_currency' => 'Currency',
+        'vat_amount_currency' => '\LagoClient\Model\Currency',
         'charges_usage' => '\LagoClient\Model\CustomerChargeUsageObject[]'
     ];
 

@@ -60,7 +60,7 @@ class CustomerChargeUsageObject implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'units' => 'string',
         'amount_cents' => 'int',
-        'amount_currency' => 'Currency',
+        'amount_currency' => '\LagoClient\Model\Currency',
         'charge' => '\LagoClient\Model\CustomerChargeUsageObjectCharge',
         'billable_metric' => '\LagoClient\Model\CustomerChargeUsageObjectBillableMetric',
         'groups' => '\LagoClient\Model\CustomerChargeUsageObjectGroupsInner[]'
