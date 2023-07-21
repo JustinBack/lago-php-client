@@ -39,5 +39,5 @@
       "LagoClient\\Test\\": "test/"
     }
   },
-  "name": "g-portal/lago-php-client"
+  "name": "justinback/lago-php-client"
 }
