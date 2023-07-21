@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - 'v*.*.*'
-      - '!v0.37.0-beta'
   pull_request:
     branches:
       - 'v*.*.*'
-      - '!v0.37.0-beta'
 
 jobs:
   generate-php-client:
@@ -22,7 +20,7 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
-          openapi-url: https://raw.githubusercontent.com/getlago/lago-openapi/a4bee71b26f6b00fe19d93ab91ee1180af6d934d/openapi.yaml
+          openapi-url: https://github.com/getlago/lago-openapi/raw/main/openapi.yaml
           command-args: "--additional-properties=invokerPackage=Lago\\Client -o . --skip-validate-spec"
           
       - name: Auto-Heal composer.json
