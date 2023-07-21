@@ -4,9 +4,9 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**findAllFees()**](FeesApi.md#findAllFees) | **GET** /fees | Find all fees |
-| [**findFee()**](FeesApi.md#findFee) | **GET** /fees/{id} | Find fee by ID |
-| [**updateFee()**](FeesApi.md#updateFee) | **PUT** /fees/{id} | Update an existing fee |
+| [**findAllFees()**](FeesApi.md#findAllFees) | **GET** /fees | List all fees |
+| [**findFee()**](FeesApi.md#findFee) | **GET** /fees/{lago_id} | Retrieve a specific fee |
+| [**updateFee()**](FeesApi.md#updateFee) | **PUT** /fees/{lago_id} | Update a fee |
 
 
 ## `findAllFees()`
@@ -15,9 +15,9 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 findAllFees($page, $per_page, $external_customer_id, $external_subscription_id, $currency, $fee_type, $billable_metric_code, $payment_status, $created_at_from, $created_at_to, $succeeded_at_from, $succeeded_at_to, $failed_at_from, $failed_at_to, $refunded_at_from, $refunded_at_to): \LagoClient\Model\FeesPaginated
 ```
 
-Find all fees
+List all fees
 
-Find all fees of an organization and filter them
+This endpoint is used for retrieving all fees that has been issued.
 
 ### Example
 
@@ -38,20 +38,20 @@ $apiInstance = new LagoClient\Api\FeesApi(
 );
 $page = 1; // int | Page number.
 $per_page = 20; // int | Number of records per page.
-$external_customer_id = 12345; // string | External customer ID
-$external_subscription_id = 12345; // string | External subscription ID
-$currency = EUR; // string | Amount currency
-$fee_type = charge; // string | Fee type
-$billable_metric_code = bm_code; // string | Code of the source billable metric
-$payment_status = succeeded; // string | Payment status
-$created_at_from = 2023-03-28T12:21:51Z; // \DateTime | Creation datetime from
-$created_at_to = 2023-03-28T12:21:51Z; // \DateTime | Creation date to
-$succeeded_at_from = 2023-03-28T12:21:51Z; // \DateTime | Payment succees date from
-$succeeded_at_to = 2023-03-28T12:21:51Z; // \DateTime | Payment succees date to
-$failed_at_from = 2023-03-28T12:21:51Z; // \DateTime | Payment failed date from
-$failed_at_to = 2023-03-28T12:21:51Z; // \DateTime | Payment failed date to
-$refunded_at_from = 2023-03-28T12:21:51Z; // \DateTime | Payment refund date from
-$refunded_at_to = 2023-03-28T12:21:51Z; // \DateTime | Payment refund date to
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | Unique identifier assigned to the customer in your application.
+$external_subscription_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External subscription ID
+$currency = new \LagoClient\Model\Currency(); // Currency | Filter results by fee’s currency.
+$fee_type = charge; // string | The fee type. Possible values are `add-on`, `charge`, `credit` or `subscription`.
+$billable_metric_code = bm_code; // string | Filter results by the `code` of the billable metric attached to the fee. Only applies to `charge` types.
+$payment_status = succeeded; // string | Indicates the payment status of the fee. It represents the current status of the payment associated with the fee. The possible values for this field are `pending`, `succeeded`, `failed` and refunded`.
+$created_at_from = 2023-03-28T12:21:51Z; // \DateTime | Filter results created after creation date and time in UTC.
+$created_at_to = 2023-03-28T12:21:51Z; // \DateTime | Filter results created before creation date and time in UTC.
+$succeeded_at_from = 2023-03-28T12:21:51Z; // \DateTime | Filter results with payment success after creation date and time in UTC.
+$succeeded_at_to = 2023-03-28T12:21:51Z; // \DateTime | Filter results with payment success after creation date and time in UTC.
+$failed_at_from = 2023-03-28T12:21:51Z; // \DateTime | Filter results with payment failure after creation date and time in UTC.
+$failed_at_to = 2023-03-28T12:21:51Z; // \DateTime | Filter results with payment failure after creation date and time in UTC.
+$refunded_at_from = 2023-03-28T12:21:51Z; // \DateTime | Filter results with payment refund after creation date and time in UTC.
+$refunded_at_to = 2023-03-28T12:21:51Z; // \DateTime | Filter results with payment refund after creation date and time in UTC.
 
 try {
     $result = $apiInstance->findAllFees($page, $per_page, $external_customer_id, $external_subscription_id, $currency, $fee_type, $billable_metric_code, $payment_status, $created_at_from, $created_at_to, $succeeded_at_from, $succeeded_at_to, $failed_at_from, $failed_at_to, $refunded_at_from, $refunded_at_to);
@@ -67,20 +67,20 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| Page number. | [optional] |
 | **per_page** | **int**| Number of records per page. | [optional] |
-| **external_customer_id** | **string**| External customer ID | [optional] |
+| **external_customer_id** | **string**| Unique identifier assigned to the customer in your application. | [optional] |
 | **external_subscription_id** | **string**| External subscription ID | [optional] |
-| **currency** | **string**| Amount currency | [optional] |
-| **fee_type** | **string**| Fee type | [optional] |
-| **billable_metric_code** | **string**| Code of the source billable metric | [optional] |
-| **payment_status** | **string**| Payment status | [optional] |
-| **created_at_from** | **\DateTime**| Creation datetime from | [optional] |
-| **created_at_to** | **\DateTime**| Creation date to | [optional] |
-| **succeeded_at_from** | **\DateTime**| Payment succees date from | [optional] |
-| **succeeded_at_to** | **\DateTime**| Payment succees date to | [optional] |
-| **failed_at_from** | **\DateTime**| Payment failed date from | [optional] |
-| **failed_at_to** | **\DateTime**| Payment failed date to | [optional] |
-| **refunded_at_from** | **\DateTime**| Payment refund date from | [optional] |
-| **refunded_at_to** | **\DateTime**| Payment refund date to | [optional] |
+| **currency** | [**Currency**](../Model/.md)| Filter results by fee’s currency. | [optional] |
+| **fee_type** | **string**| The fee type. Possible values are &#x60;add-on&#x60;, &#x60;charge&#x60;, &#x60;credit&#x60; or &#x60;subscription&#x60;. | [optional] |
+| **billable_metric_code** | **string**| Filter results by the &#x60;code&#x60; of the billable metric attached to the fee. Only applies to &#x60;charge&#x60; types. | [optional] |
+| **payment_status** | **string**| Indicates the payment status of the fee. It represents the current status of the payment associated with the fee. The possible values for this field are &#x60;pending&#x60;, &#x60;succeeded&#x60;, &#x60;failed&#x60; and refunded&#x60;. | [optional] |
+| **created_at_from** | **\DateTime**| Filter results created after creation date and time in UTC. | [optional] |
+| **created_at_to** | **\DateTime**| Filter results created before creation date and time in UTC. | [optional] |
+| **succeeded_at_from** | **\DateTime**| Filter results with payment success after creation date and time in UTC. | [optional] |
+| **succeeded_at_to** | **\DateTime**| Filter results with payment success after creation date and time in UTC. | [optional] |
+| **failed_at_from** | **\DateTime**| Filter results with payment failure after creation date and time in UTC. | [optional] |
+| **failed_at_to** | **\DateTime**| Filter results with payment failure after creation date and time in UTC. | [optional] |
+| **refunded_at_from** | **\DateTime**| Filter results with payment refund after creation date and time in UTC. | [optional] |
+| **refunded_at_to** | **\DateTime**| Filter results with payment refund after creation date and time in UTC. | [optional] |
 
 ### Return type
 
@@ -102,12 +102,12 @@ try {
 ## `findFee()`
 
 ```php
-findFee($id): \LagoClient\Model\FeeObject
+findFee($lago_id): \LagoClient\Model\Fee
 ```
 
-Find fee by ID
+Retrieve a specific fee
 
-Return a single fee
+This endpoint is used for retrieving a specific fee that has been issued.
 
 ### Example
 
@@ -126,10 +126,10 @@ $apiInstance = new LagoClient\Api\FeesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Fee
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the fee within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the fee’s record within the Lago system.
 
 try {
-    $result = $apiInstance->findFee($id);
+    $result = $apiInstance->findFee($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FeesApi->findFee: ', $e->getMessage(), PHP_EOL;
@@ -140,11 +140,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Fee | |
+| **lago_id** | **string**| Unique identifier assigned to the fee within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the fee’s record within the Lago system. | |
 
 ### Return type
 
-[**\LagoClient\Model\FeeObject**](../Model/FeeObject.md)
+[**\LagoClient\Model\Fee**](../Model/Fee.md)
 
 ### Authorization
 
@@ -162,12 +162,12 @@ try {
 ## `updateFee()`
 
 ```php
-updateFee($id, $fee_update_input): \LagoClient\Model\FeeObject
+updateFee($lago_id, $fee_update_input): \LagoClient\Model\Fee
 ```
 
-Update an existing fee
+Update a fee
 
-Update an existing fee
+This endpoint is used for updating a specific fee that has been issued.
 
 ### Example
 
@@ -186,11 +186,11 @@ $apiInstance = new LagoClient\Api\FeesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Fee
-$fee_update_input = new \LagoClient\Model\FeeUpdateInput(); // \LagoClient\Model\FeeUpdateInput | Payload to update a fee
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the fee within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the fee’s record within the Lago system.
+$fee_update_input = new \LagoClient\Model\FeeUpdateInput(); // \LagoClient\Model\FeeUpdateInput | Fee payload
 
 try {
-    $result = $apiInstance->updateFee($id, $fee_update_input);
+    $result = $apiInstance->updateFee($lago_id, $fee_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FeesApi->updateFee: ', $e->getMessage(), PHP_EOL;
@@ -201,12 +201,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Fee | |
-| **fee_update_input** | [**\LagoClient\Model\FeeUpdateInput**](../Model/FeeUpdateInput.md)| Payload to update a fee | [optional] |
+| **lago_id** | **string**| Unique identifier assigned to the fee within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the fee’s record within the Lago system. | |
+| **fee_update_input** | [**\LagoClient\Model\FeeUpdateInput**](../Model/FeeUpdateInput.md)| Fee payload | [optional] |
 
 ### Return type
 
-[**\LagoClient\Model\FeeObject**](../Model/FeeObject.md)
+[**\LagoClient\Model\Fee**](../Model/Fee.md)
 
 ### Authorization
 

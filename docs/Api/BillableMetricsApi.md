@@ -135,7 +135,7 @@ try {
 ## `findAllBillableMetricGroups()`
 
 ```php
-findAllBillableMetricGroups($code): \LagoClient\Model\GroupsPaginated
+findAllBillableMetricGroups($code, $page, $per_page): \LagoClient\Model\GroupsPaginated
 ```
 
 Find a billable metric's groups
@@ -160,9 +160,11 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     $config
 );
 $code = example_code; // string | Code of the existing billable metric.
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 
 try {
-    $result = $apiInstance->findAllBillableMetricGroups($code);
+    $result = $apiInstance->findAllBillableMetricGroups($code, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableMetricsApi->findAllBillableMetricGroups: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +176,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of the existing billable metric. | |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 
 ### Return type
 
@@ -195,7 +199,7 @@ try {
 ## `findAllBillableMetrics()`
 
 ```php
-findAllBillableMetrics(): \LagoClient\Model\BillableMetricsPaginated
+findAllBillableMetrics($page, $per_page): \LagoClient\Model\BillableMetricsPaginated
 ```
 
 List all billable metrics
@@ -219,9 +223,11 @@ $apiInstance = new LagoClient\Api\BillableMetricsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 
 try {
-    $result = $apiInstance->findAllBillableMetrics();
+    $result = $apiInstance->findAllBillableMetrics($page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableMetricsApi->findAllBillableMetrics: ', $e->getMessage(), PHP_EOL;
@@ -230,7 +236,10 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 
 ### Return type
 

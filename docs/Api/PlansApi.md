@@ -4,22 +4,22 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createPlan()**](PlansApi.md#createPlan) | **POST** /plans | Create a new plan |
+| [**createPlan()**](PlansApi.md#createPlan) | **POST** /plans | Create a plan |
 | [**destroyPlan()**](PlansApi.md#destroyPlan) | **DELETE** /plans/{code} | Delete a plan |
-| [**findAllPlans()**](PlansApi.md#findAllPlans) | **GET** /plans | Find plans |
-| [**findPlan()**](PlansApi.md#findPlan) | **GET** /plans/{code} | Find plan by code |
-| [**updatePlan()**](PlansApi.md#updatePlan) | **PUT** /plans/{code} | Update an existing plan |
+| [**findAllPlans()**](PlansApi.md#findAllPlans) | **GET** /plans | List all plans |
+| [**findPlan()**](PlansApi.md#findPlan) | **GET** /plans/{code} | Retrieve a plan |
+| [**updatePlan()**](PlansApi.md#updatePlan) | **PUT** /plans/{code} | Update a plan |
 
 
 ## `createPlan()`
 
 ```php
-createPlan($plan_input): \LagoClient\Model\Plan
+createPlan($plan_create_input): \LagoClient\Model\Plan
 ```
 
-Create a new plan
+Create a plan
 
-Create a new plan
+This endpoint creates a plan with subscription and usage-based charges. It supports flexible billing cadence (in-advance or in-arrears) and allows for both recurring and metered charges.
 
 ### Example
 
@@ -38,10 +38,10 @@ $apiInstance = new LagoClient\Api\PlansApi(
     new GuzzleHttp\Client(),
     $config
 );
-$plan_input = new \LagoClient\Model\PlanInput(); // \LagoClient\Model\PlanInput | Plan payload
+$plan_create_input = new \LagoClient\Model\PlanCreateInput(); // \LagoClient\Model\PlanCreateInput | Plan payload
 
 try {
-    $result = $apiInstance->createPlan($plan_input);
+    $result = $apiInstance->createPlan($plan_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlansApi->createPlan: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +52,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **plan_input** | [**\LagoClient\Model\PlanInput**](../Model/PlanInput.md)| Plan payload | |
+| **plan_create_input** | [**\LagoClient\Model\PlanCreateInput**](../Model/PlanCreateInput.md)| Plan payload | |
 
 ### Return type
 
@@ -79,7 +79,7 @@ destroyPlan($code): \LagoClient\Model\Plan
 
 Delete a plan
 
-Delete a plan
+This endpoint deletes a specific plan. Note that this plan could be associated with active subscriptions.
 
 ### Example
 
@@ -98,7 +98,7 @@ $apiInstance = new LagoClient\Api\PlansApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing plan
+$code = startup; // string | The code of the plan. It serves as a unique identifier associated with a particular plan. The code is typically used for internal or system-level identification purposes, like assigning a subscription, for instance.
 
 try {
     $result = $apiInstance->destroyPlan($code);
@@ -112,7 +112,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing plan | |
+| **code** | **string**| The code of the plan. It serves as a unique identifier associated with a particular plan. The code is typically used for internal or system-level identification purposes, like assigning a subscription, for instance. | |
 
 ### Return type
 
@@ -134,12 +134,12 @@ try {
 ## `findAllPlans()`
 
 ```php
-findAllPlans(): \LagoClient\Model\PlansPaginated
+findAllPlans($page, $per_page): \LagoClient\Model\PlansPaginated
 ```
 
-Find plans
+List all plans
 
-Find all plans in certain organisation
+This endpoint retrieves all existing plans.
 
 ### Example
 
@@ -158,9 +158,11 @@ $apiInstance = new LagoClient\Api\PlansApi(
     new GuzzleHttp\Client(),
     $config
 );
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 
 try {
-    $result = $apiInstance->findAllPlans();
+    $result = $apiInstance->findAllPlans($page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlansApi->findAllPlans: ', $e->getMessage(), PHP_EOL;
@@ -169,7 +171,10 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 
 ### Return type
 
@@ -194,9 +199,9 @@ This endpoint does not need any parameter.
 findPlan($code): \LagoClient\Model\Plan
 ```
 
-Find plan by code
+Retrieve a plan
 
-Return a single plan
+This endpoint retrieves a specific plan.
 
 ### Example
 
@@ -215,7 +220,7 @@ $apiInstance = new LagoClient\Api\PlansApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing plan
+$code = startup; // string | The code of the plan. It serves as a unique identifier associated with a particular plan. The code is typically used for internal or system-level identification purposes, like assigning a subscription, for instance.
 
 try {
     $result = $apiInstance->findPlan($code);
@@ -229,7 +234,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing plan | |
+| **code** | **string**| The code of the plan. It serves as a unique identifier associated with a particular plan. The code is typically used for internal or system-level identification purposes, like assigning a subscription, for instance. | |
 
 ### Return type
 
@@ -251,12 +256,12 @@ try {
 ## `updatePlan()`
 
 ```php
-updatePlan($code, $plan_input): \LagoClient\Model\Plan
+updatePlan($code, $plan_update_input): \LagoClient\Model\Plan
 ```
 
-Update an existing plan
+Update a plan
 
-Update an existing plan by code
+This endpoint updates a specific plan with subscription and usage-based charges. It supports flexible billing cadence (in-advance or in-arrears) and allows for both recurring and metered charges.
 
 ### Example
 
@@ -275,11 +280,11 @@ $apiInstance = new LagoClient\Api\PlansApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing plan
-$plan_input = new \LagoClient\Model\PlanInput(); // \LagoClient\Model\PlanInput | Update an existing plan
+$code = startup; // string | The code of the plan. It serves as a unique identifier associated with a particular plan. The code is typically used for internal or system-level identification purposes, like assigning a subscription, for instance.
+$plan_update_input = new \LagoClient\Model\PlanUpdateInput(); // \LagoClient\Model\PlanUpdateInput | Plan payload
 
 try {
-    $result = $apiInstance->updatePlan($code, $plan_input);
+    $result = $apiInstance->updatePlan($code, $plan_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlansApi->updatePlan: ', $e->getMessage(), PHP_EOL;
@@ -290,8 +295,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing plan | |
-| **plan_input** | [**\LagoClient\Model\PlanInput**](../Model/PlanInput.md)| Update an existing plan | |
+| **code** | **string**| The code of the plan. It serves as a unique identifier associated with a particular plan. The code is typically used for internal or system-level identification purposes, like assigning a subscription, for instance. | |
+| **plan_update_input** | [**\LagoClient\Model\PlanUpdateInput**](../Model/PlanUpdateInput.md)| Plan payload | |
 
 ### Return type
 

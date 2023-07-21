@@ -6,7 +6,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 | ------------- | ------------- | ------------- |
 | [**createBatchEvents()**](EventsApi.md#createBatchEvents) | **POST** /events/batch | Batch multiple events |
 | [**createEvent()**](EventsApi.md#createEvent) | **POST** /events | Send usage events |
-| [**eventEstimateFees()**](EventsApi.md#eventEstimateFees) | **POST** /events/estimate_fees | Estimate fees for an pay in advance charge |
+| [**eventEstimateFees()**](EventsApi.md#eventEstimateFees) | **POST** /events/estimate_fees | Estimate fees for a pay in advance charge |
 | [**findEvent()**](EventsApi.md#findEvent) | **GET** /events/{transaction_id} | Retrieve a specific event |
 
 
@@ -63,7 +63,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -122,7 +122,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -134,7 +134,7 @@ void (empty response body)
 eventEstimateFees($event_estimate_fees_input): \LagoClient\Model\Fees
 ```
 
-Estimate fees for an pay in advance charge
+Estimate fees for a pay in advance charge
 
 Estimate the fees that would be created after reception of an event for a billable metric attached to one or multiple pay in advance charges
 
@@ -155,7 +155,7 @@ $apiInstance = new LagoClient\Api\EventsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$event_estimate_fees_input = new \LagoClient\Model\EventEstimateFeesInput(); // \LagoClient\Model\EventEstimateFeesInput | Event payload for pay in advance fee estimate
+$event_estimate_fees_input = new \LagoClient\Model\EventEstimateFeesInput(); // \LagoClient\Model\EventEstimateFeesInput | Event estimate payload
 
 try {
     $result = $apiInstance->eventEstimateFees($event_estimate_fees_input);
@@ -169,7 +169,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **event_estimate_fees_input** | [**\LagoClient\Model\EventEstimateFeesInput**](../Model/EventEstimateFeesInput.md)| Event payload for pay in advance fee estimate | |
+| **event_estimate_fees_input** | [**\LagoClient\Model\EventEstimateFeesInput**](../Model/EventEstimateFeesInput.md)| Event estimate payload | |
 
 ### Return type
 

@@ -4,18 +4,18 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**updateOrganization()**](OrganizationsApi.md#updateOrganization) | **PUT** /organizations | Update an existing Organization |
+| [**updateOrganization()**](OrganizationsApi.md#updateOrganization) | **PUT** /organizations | Update your organization |
 
 
 ## `updateOrganization()`
 
 ```php
-updateOrganization($organization_input): \LagoClient\Model\Organization
+updateOrganization($organization_update_input): \LagoClient\Model\Organization
 ```
 
-Update an existing Organization
+Update your organization
 
-Update an existing organization
+This endpoint is used to update your own organization's settings.
 
 ### Example
 
@@ -34,10 +34,10 @@ $apiInstance = new LagoClient\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$organization_input = new \LagoClient\Model\OrganizationInput(); // \LagoClient\Model\OrganizationInput | Update an existing organization
+$organization_update_input = new \LagoClient\Model\OrganizationUpdateInput(); // \LagoClient\Model\OrganizationUpdateInput | Update an existing organization
 
 try {
-    $result = $apiInstance->updateOrganization($organization_input);
+    $result = $apiInstance->updateOrganization($organization_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->updateOrganization: ', $e->getMessage(), PHP_EOL;
@@ -48,7 +48,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **organization_input** | [**\LagoClient\Model\OrganizationInput**](../Model/OrganizationInput.md)| Update an existing organization | |
+| **organization_update_input** | [**\LagoClient\Model\OrganizationUpdateInput**](../Model/OrganizationUpdateInput.md)| Update an existing organization | |
 
 ### Return type
 

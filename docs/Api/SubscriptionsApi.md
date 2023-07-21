@@ -73,7 +73,7 @@ try {
 ## `destroySubscription()`
 
 ```php
-destroySubscription($external_id): \LagoClient\Model\Subscription
+destroySubscription($external_id, $status): \LagoClient\Model\Subscription
 ```
 
 Terminate a subscription
@@ -98,9 +98,10 @@ $apiInstance = new LagoClient\Api\SubscriptionsApi(
     $config
 );
 $external_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | External ID of the existing subscription
+$status = pending; // string | If the field is not defined, Lago will terminate only `active` subscriptions. However, if you wish to cancel a `pending` subscription, please ensure that you include `status=pending` in your request.
 
 try {
-    $result = $apiInstance->destroySubscription($external_id);
+    $result = $apiInstance->destroySubscription($external_id, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->destroySubscription: ', $e->getMessage(), PHP_EOL;
@@ -112,6 +113,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **external_id** | **string**| External ID of the existing subscription | |
+| **status** | **string**| If the field is not defined, Lago will terminate only &#x60;active&#x60; subscriptions. However, if you wish to cancel a &#x60;pending&#x60; subscription, please ensure that you include &#x60;status&#x3D;pending&#x60; in your request. | [optional] |
 
 ### Return type
 
@@ -133,7 +135,7 @@ try {
 ## `findAllSubscriptions()`
 
 ```php
-findAllSubscriptions($external_customer_id, $plan_code): \LagoClient\Model\SubscriptionsPaginated
+findAllSubscriptions($page, $per_page, $external_customer_id, $plan_code, $status): \LagoClient\Model\SubscriptionsPaginated
 ```
 
 List all subscriptions
@@ -157,11 +159,14 @@ $apiInstance = new LagoClient\Api\SubscriptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 $external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | The customer external unique identifier (provided by your own application)
 $plan_code = premium; // string | The unique code representing the plan to be attached to the customer. This code must correspond to the code property of one of the active plans.
+$status = ["active","pending"]; // string[] | If the field is not defined, Lago will return only `active` subscriptions. However, if you wish to fetch subscriptions by different status you can define them in a status[] query param. Available filter values: `pending`, `canceled`, `terminated`, `active`.
 
 try {
-    $result = $apiInstance->findAllSubscriptions($external_customer_id, $plan_code);
+    $result = $apiInstance->findAllSubscriptions($page, $per_page, $external_customer_id, $plan_code, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->findAllSubscriptions: ', $e->getMessage(), PHP_EOL;
@@ -172,8 +177,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 | **external_customer_id** | **string**| The customer external unique identifier (provided by your own application) | [optional] |
 | **plan_code** | **string**| The unique code representing the plan to be attached to the customer. This code must correspond to the code property of one of the active plans. | [optional] |
+| **status** | [**string[]**](../Model/string.md)| If the field is not defined, Lago will return only &#x60;active&#x60; subscriptions. However, if you wish to fetch subscriptions by different status you can define them in a status[] query param. Available filter values: &#x60;pending&#x60;, &#x60;canceled&#x60;, &#x60;terminated&#x60;, &#x60;active&#x60;. | [optional] |
 
 ### Return type
 

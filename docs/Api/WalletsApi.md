@@ -4,24 +4,24 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createWallet()**](WalletsApi.md#createWallet) | **POST** /wallets | Create a new wallet |
-| [**createWalletTransaction()**](WalletsApi.md#createWalletTransaction) | **POST** /wallet_transactions | Create a new wallet transaction |
-| [**destroyWallet()**](WalletsApi.md#destroyWallet) | **DELETE** /wallets/{id} | Delete a wallet |
-| [**findAllWalletTransactions()**](WalletsApi.md#findAllWalletTransactions) | **GET** /wallets/{id}/wallet_transactions | Find wallet transactions |
-| [**findAllWallets()**](WalletsApi.md#findAllWallets) | **GET** /wallets | Find wallets |
-| [**findWallet()**](WalletsApi.md#findWallet) | **GET** /wallets/{id} | Find wallet |
-| [**updateWallet()**](WalletsApi.md#updateWallet) | **PUT** /wallets/{id} | Update an existing wallet |
+| [**createWallet()**](WalletsApi.md#createWallet) | **POST** /wallets | Create a wallet |
+| [**createWalletTransaction()**](WalletsApi.md#createWalletTransaction) | **POST** /wallet_transactions | Top up a wallet |
+| [**destroyWallet()**](WalletsApi.md#destroyWallet) | **DELETE** /wallets/{lago_id} | Terminate a wallet |
+| [**findAllWalletTransactions()**](WalletsApi.md#findAllWalletTransactions) | **GET** /wallets/{lago_id}/wallet_transactions | List all wallet transactions |
+| [**findAllWallets()**](WalletsApi.md#findAllWallets) | **GET** /wallets | List all wallets |
+| [**findWallet()**](WalletsApi.md#findWallet) | **GET** /wallets/{lago_id} | Retrieve a wallet |
+| [**updateWallet()**](WalletsApi.md#updateWallet) | **PUT** /wallets/{lago_id} | Update a wallet |
 
 
 ## `createWallet()`
 
 ```php
-createWallet($wallet_input): \LagoClient\Model\Wallet
+createWallet($wallet_create_input): \LagoClient\Model\Wallet
 ```
 
-Create a new wallet
+Create a wallet
 
-Create a new wallet
+This endpoint is used to create a wallet with prepaid credits.
 
 ### Example
 
@@ -40,10 +40,10 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$wallet_input = new \LagoClient\Model\WalletInput(); // \LagoClient\Model\WalletInput | Wallet payload
+$wallet_create_input = new \LagoClient\Model\WalletCreateInput(); // \LagoClient\Model\WalletCreateInput | Wallet payload
 
 try {
-    $result = $apiInstance->createWallet($wallet_input);
+    $result = $apiInstance->createWallet($wallet_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->createWallet: ', $e->getMessage(), PHP_EOL;
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **wallet_input** | [**\LagoClient\Model\WalletInput**](../Model/WalletInput.md)| Wallet payload | |
+| **wallet_create_input** | [**\LagoClient\Model\WalletCreateInput**](../Model/WalletCreateInput.md)| Wallet payload | |
 
 ### Return type
 
@@ -76,12 +76,12 @@ try {
 ## `createWalletTransaction()`
 
 ```php
-createWalletTransaction($wallet_transaction_input): \LagoClient\Model\WalletTransactions
+createWalletTransaction($wallet_transaction_create_input): \LagoClient\Model\WalletTransactions
 ```
 
-Create a new wallet transaction
+Top up a wallet
 
-Create a new wallet transaction
+This endpoint is used to top-up an active wallet.
 
 ### Example
 
@@ -100,10 +100,10 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$wallet_transaction_input = new \LagoClient\Model\WalletTransactionInput(); // \LagoClient\Model\WalletTransactionInput | Wallet transaction payload
+$wallet_transaction_create_input = new \LagoClient\Model\WalletTransactionCreateInput(); // \LagoClient\Model\WalletTransactionCreateInput | Wallet transaction payload
 
 try {
-    $result = $apiInstance->createWalletTransaction($wallet_transaction_input);
+    $result = $apiInstance->createWalletTransaction($wallet_transaction_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->createWalletTransaction: ', $e->getMessage(), PHP_EOL;
@@ -114,7 +114,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **wallet_transaction_input** | [**\LagoClient\Model\WalletTransactionInput**](../Model/WalletTransactionInput.md)| Wallet transaction payload | |
+| **wallet_transaction_create_input** | [**\LagoClient\Model\WalletTransactionCreateInput**](../Model/WalletTransactionCreateInput.md)| Wallet transaction payload | |
 
 ### Return type
 
@@ -136,12 +136,12 @@ try {
 ## `destroyWallet()`
 
 ```php
-destroyWallet($id): \LagoClient\Model\Wallet
+destroyWallet($lago_id): \LagoClient\Model\Wallet
 ```
 
-Delete a wallet
+Terminate a wallet
 
-Delete a wallet
+This endpoint is used to terminate an existing wallet with prepaid credits.
 
 ### Example
 
@@ -160,10 +160,10 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Lago ID of the existing wallet
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system.
 
 try {
-    $result = $apiInstance->destroyWallet($id);
+    $result = $apiInstance->destroyWallet($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->destroyWallet: ', $e->getMessage(), PHP_EOL;
@@ -174,7 +174,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Lago ID of the existing wallet | |
+| **lago_id** | **string**| Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system. | |
 
 ### Return type
 
@@ -196,12 +196,12 @@ try {
 ## `findAllWalletTransactions()`
 
 ```php
-findAllWalletTransactions($id, $status, $transaction_type): \LagoClient\Model\WalletTransactionsPaginated
+findAllWalletTransactions($lago_id, $page, $per_page, $status, $transaction_type): \LagoClient\Model\WalletTransactionsPaginated
 ```
 
-Find wallet transactions
+List all wallet transactions
 
-Find all wallet transactions for certain wallet
+This endpoint is used to list all wallet transactions.
 
 ### Example
 
@@ -220,12 +220,14 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Lago ID of the existing wallet
-$status = pending; // string | Status (pending or settled)
-$transaction_type = inbound; // string | Transaction Type (inbound or outbound)
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system.
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
+$status = pending; // string | The status of the wallet transaction. Possible values are `pending` or `settled`.
+$transaction_type = inbound; // string | The transaction type of the wallet transaction. Possible values are `inbound` (increasing the wallet balance) or `outbound` (decreasing the wallet balance).
 
 try {
-    $result = $apiInstance->findAllWalletTransactions($id, $status, $transaction_type);
+    $result = $apiInstance->findAllWalletTransactions($lago_id, $page, $per_page, $status, $transaction_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->findAllWalletTransactions: ', $e->getMessage(), PHP_EOL;
@@ -236,9 +238,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Lago ID of the existing wallet | |
-| **status** | **string**| Status (pending or settled) | [optional] |
-| **transaction_type** | **string**| Transaction Type (inbound or outbound) | [optional] |
+| **lago_id** | **string**| Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system. | |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
+| **status** | **string**| The status of the wallet transaction. Possible values are &#x60;pending&#x60; or &#x60;settled&#x60;. | [optional] |
+| **transaction_type** | **string**| The transaction type of the wallet transaction. Possible values are &#x60;inbound&#x60; (increasing the wallet balance) or &#x60;outbound&#x60; (decreasing the wallet balance). | [optional] |
 
 ### Return type
 
@@ -260,12 +264,12 @@ try {
 ## `findAllWallets()`
 
 ```php
-findAllWallets($external_customer_id): \LagoClient\Model\WalletsPaginated
+findAllWallets($external_customer_id, $page, $per_page): \LagoClient\Model\WalletsPaginated
 ```
 
-Find wallets
+List all wallets
 
-Find all wallets for certain customer
+This endpoint is used to list all wallets with prepaid credits.
 
 ### Example
 
@@ -284,10 +288,12 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_customer_id = 12345; // string | External customer ID
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | The customer external unique identifier (provided by your own application).
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 
 try {
-    $result = $apiInstance->findAllWallets($external_customer_id);
+    $result = $apiInstance->findAllWallets($external_customer_id, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->findAllWallets: ', $e->getMessage(), PHP_EOL;
@@ -298,7 +304,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **external_customer_id** | **string**| External customer ID | |
+| **external_customer_id** | **string**| The customer external unique identifier (provided by your own application). | |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 
 ### Return type
 
@@ -320,12 +328,12 @@ try {
 ## `findWallet()`
 
 ```php
-findWallet($id): \LagoClient\Model\Wallet
+findWallet($lago_id): \LagoClient\Model\Wallet
 ```
 
-Find wallet
+Retrieve a wallet
 
-Return a wallet
+This endpoint is used to retrieve an existing wallet with prepaid credits.
 
 ### Example
 
@@ -344,10 +352,10 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Lago ID of the existing wallet
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system.
 
 try {
-    $result = $apiInstance->findWallet($id);
+    $result = $apiInstance->findWallet($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->findWallet: ', $e->getMessage(), PHP_EOL;
@@ -358,7 +366,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Lago ID of the existing wallet | |
+| **lago_id** | **string**| Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system. | |
 
 ### Return type
 
@@ -380,12 +388,12 @@ try {
 ## `updateWallet()`
 
 ```php
-updateWallet($id, $wallet_update_input): \LagoClient\Model\Wallet
+updateWallet($lago_id, $wallet_update_input): \LagoClient\Model\Wallet
 ```
 
-Update an existing wallet
+Update a wallet
 
-Update an existing wallet
+This endpoint is used to update an existing wallet with prepaid credits.
 
 ### Example
 
@@ -404,11 +412,11 @@ $apiInstance = new LagoClient\Api\WalletsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Lago ID of the existing wallet
-$wallet_update_input = new \LagoClient\Model\WalletUpdateInput(); // \LagoClient\Model\WalletUpdateInput | Update an existing wallet
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system.
+$wallet_update_input = new \LagoClient\Model\WalletUpdateInput(); // \LagoClient\Model\WalletUpdateInput | Wallet update payload
 
 try {
-    $result = $apiInstance->updateWallet($id, $wallet_update_input);
+    $result = $apiInstance->updateWallet($lago_id, $wallet_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->updateWallet: ', $e->getMessage(), PHP_EOL;
@@ -419,8 +427,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Lago ID of the existing wallet | |
-| **wallet_update_input** | [**\LagoClient\Model\WalletUpdateInput**](../Model/WalletUpdateInput.md)| Update an existing wallet | |
+| **lago_id** | **string**| Unique identifier assigned to the wallet within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the wallet’s record within the Lago system. | |
+| **wallet_update_input** | [**\LagoClient\Model\WalletUpdateInput**](../Model/WalletUpdateInput.md)| Wallet update payload | |
 
 ### Return type
 

@@ -4,23 +4,23 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createCreditNote()**](CreditNotesApi.md#createCreditNote) | **POST** /credit_notes | Create a new Credit note |
-| [**downloadCreditNote()**](CreditNotesApi.md#downloadCreditNote) | **POST** /credit_notes/{id}/download | Download an existing credit note |
-| [**findAllCreditNotes()**](CreditNotesApi.md#findAllCreditNotes) | **GET** /credit_notes | Find Credit notes |
-| [**findCreditNote()**](CreditNotesApi.md#findCreditNote) | **GET** /credit_notes/{id} | Find credit note |
-| [**updateCreditNote()**](CreditNotesApi.md#updateCreditNote) | **PUT** /credit_notes/{id} | Update an existing credit note |
-| [**voidCreditNote()**](CreditNotesApi.md#voidCreditNote) | **PUT** /credit_notes/{id}/void | Void existing credit note |
+| [**createCreditNote()**](CreditNotesApi.md#createCreditNote) | **POST** /credit_notes | Create a credit note |
+| [**downloadCreditNote()**](CreditNotesApi.md#downloadCreditNote) | **POST** /credit_notes/{lago_id}/download | Download a credit note PDF |
+| [**findAllCreditNotes()**](CreditNotesApi.md#findAllCreditNotes) | **GET** /credit_notes | List all credit notes |
+| [**findCreditNote()**](CreditNotesApi.md#findCreditNote) | **GET** /credit_notes/{lago_id} | Retrieve a credit note |
+| [**updateCreditNote()**](CreditNotesApi.md#updateCreditNote) | **PUT** /credit_notes/{lago_id} | Update a credit note |
+| [**voidCreditNote()**](CreditNotesApi.md#voidCreditNote) | **PUT** /credit_notes/{lago_id}/void | Void a credit note |
 
 
 ## `createCreditNote()`
 
 ```php
-createCreditNote($credit_note_input): \LagoClient\Model\CreditNote
+createCreditNote($credit_note_create_input): \LagoClient\Model\CreditNote
 ```
 
-Create a new Credit note
+Create a credit note
 
-Create a new credit note
+This endpoint creates a new credit note.
 
 ### Example
 
@@ -39,10 +39,10 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$credit_note_input = new \LagoClient\Model\CreditNoteInput(); // \LagoClient\Model\CreditNoteInput | Credit note payload
+$credit_note_create_input = new \LagoClient\Model\CreditNoteCreateInput(); // \LagoClient\Model\CreditNoteCreateInput | Credit note payload
 
 try {
-    $result = $apiInstance->createCreditNote($credit_note_input);
+    $result = $apiInstance->createCreditNote($credit_note_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->createCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **credit_note_input** | [**\LagoClient\Model\CreditNoteInput**](../Model/CreditNoteInput.md)| Credit note payload | |
+| **credit_note_create_input** | [**\LagoClient\Model\CreditNoteCreateInput**](../Model/CreditNoteCreateInput.md)| Credit note payload | |
 
 ### Return type
 
@@ -75,12 +75,12 @@ try {
 ## `downloadCreditNote()`
 
 ```php
-downloadCreditNote($id): \LagoClient\Model\CreditNote
+downloadCreditNote($lago_id): \LagoClient\Model\CreditNote
 ```
 
-Download an existing credit note
+Download a credit note PDF
 
-Download an existing credit note
+This endpoint downloads the PDF of an existing credit note.
 
 ### Example
 
@@ -99,10 +99,10 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Credit note
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | The credit note unique identifier, created by Lago.
 
 try {
-    $result = $apiInstance->downloadCreditNote($id);
+    $result = $apiInstance->downloadCreditNote($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->downloadCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -113,7 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Credit note | |
+| **lago_id** | **string**| The credit note unique identifier, created by Lago. | |
 
 ### Return type
 
@@ -135,12 +135,12 @@ try {
 ## `findAllCreditNotes()`
 
 ```php
-findAllCreditNotes($external_customer_id): \LagoClient\Model\CreditNotes
+findAllCreditNotes($page, $per_page, $external_customer_id): \LagoClient\Model\CreditNotes
 ```
 
-Find Credit notes
+List all credit notes
 
-Find all credit notes in certain organisation
+This endpoint list all existing credit notes.
 
 ### Example
 
@@ -159,10 +159,12 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_customer_id = 12345; // string | External customer ID
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | Unique identifier assigned to the customer in your application.
 
 try {
-    $result = $apiInstance->findAllCreditNotes($external_customer_id);
+    $result = $apiInstance->findAllCreditNotes($page, $per_page, $external_customer_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->findAllCreditNotes: ', $e->getMessage(), PHP_EOL;
@@ -173,7 +175,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **external_customer_id** | **string**| External customer ID | [optional] |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
+| **external_customer_id** | **string**| Unique identifier assigned to the customer in your application. | [optional] |
 
 ### Return type
 
@@ -195,12 +199,12 @@ try {
 ## `findCreditNote()`
 
 ```php
-findCreditNote($id): \LagoClient\Model\CreditNote
+findCreditNote($lago_id): \LagoClient\Model\CreditNote
 ```
 
-Find credit note
+Retrieve a credit note
 
-Return a single credit note
+This endpoint retrieves an existing credit note.
 
 ### Example
 
@@ -219,10 +223,10 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 12345; // string | Id of the existing credit note
+$lago_id = 12345; // string | The credit note unique identifier, created by Lago.
 
 try {
-    $result = $apiInstance->findCreditNote($id);
+    $result = $apiInstance->findCreditNote($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->findCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -233,7 +237,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Id of the existing credit note | |
+| **lago_id** | **string**| The credit note unique identifier, created by Lago. | |
 
 ### Return type
 
@@ -255,12 +259,12 @@ try {
 ## `updateCreditNote()`
 
 ```php
-updateCreditNote($id, $credit_note_update_input): \LagoClient\Model\CreditNote
+updateCreditNote($lago_id, $credit_note_update_input): \LagoClient\Model\CreditNote
 ```
 
-Update an existing credit note
+Update a credit note
 
-Update an existing credit note
+This endpoint updates an existing credit note.
 
 ### Example
 
@@ -279,11 +283,11 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 12345; // string | Id of the existing credit note
-$credit_note_update_input = new \LagoClient\Model\CreditNoteUpdateInput(); // \LagoClient\Model\CreditNoteUpdateInput | Update an existing credit note
+$lago_id = 12345; // string | The credit note unique identifier, created by Lago.
+$credit_note_update_input = new \LagoClient\Model\CreditNoteUpdateInput(); // \LagoClient\Model\CreditNoteUpdateInput | Credit note update payload
 
 try {
-    $result = $apiInstance->updateCreditNote($id, $credit_note_update_input);
+    $result = $apiInstance->updateCreditNote($lago_id, $credit_note_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->updateCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -294,8 +298,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Id of the existing credit note | |
-| **credit_note_update_input** | [**\LagoClient\Model\CreditNoteUpdateInput**](../Model/CreditNoteUpdateInput.md)| Update an existing credit note | |
+| **lago_id** | **string**| The credit note unique identifier, created by Lago. | |
+| **credit_note_update_input** | [**\LagoClient\Model\CreditNoteUpdateInput**](../Model/CreditNoteUpdateInput.md)| Credit note update payload | |
 
 ### Return type
 
@@ -317,12 +321,12 @@ try {
 ## `voidCreditNote()`
 
 ```php
-voidCreditNote($id): \LagoClient\Model\CreditNote
+voidCreditNote($lago_id): \LagoClient\Model\CreditNote
 ```
 
-Void existing credit note
+Void a credit note
 
-Void an existing credit note
+This endpoint voids an existing credit note.
 
 ### Example
 
@@ -341,10 +345,10 @@ $apiInstance = new LagoClient\Api\CreditNotesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Credit note
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | The credit note unique identifier, created by Lago.
 
 try {
-    $result = $apiInstance->voidCreditNote($id);
+    $result = $apiInstance->voidCreditNote($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotesApi->voidCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -355,7 +359,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Credit note | |
+| **lago_id** | **string**| The credit note unique identifier, created by Lago. | |
 
 ### Return type
 

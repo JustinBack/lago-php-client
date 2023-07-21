@@ -4,7 +4,7 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**fetchPublicKey()**](WebhooksApi.md#fetchPublicKey) | **GET** /webhooks/public_key | Fetch webhook public key |
+| [**fetchPublicKey()**](WebhooksApi.md#fetchPublicKey) | **GET** /webhooks/public_key | Retrieve webhook public key |
 
 
 ## `fetchPublicKey()`
@@ -13,9 +13,9 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 fetchPublicKey(): string
 ```
 
-Fetch webhook public key
+Retrieve webhook public key
 
-Webhook public key
+This endpoint is used to retrieve the public key used to verify the webhooks signature
 
 ### Example
 
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

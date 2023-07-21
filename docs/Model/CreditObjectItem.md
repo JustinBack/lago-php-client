@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lago_id** | **string** |  |
-**type** | **string** |  |
-**code** | **string** |  |
-**name** | **string** |  |
+**lago_id** | **string** | Unique identifier assigned to the credit item within the Lago application. |
+**type** | **string** | The type of credit applied. Possible values are &#x60;coupon&#x60; or &#x60;credit_note&#x60;. |
+**code** | **string** | The code of the credit applied. It can be the code of the coupon attached to the credit or the credit note&#39;s number. |
+**name** | **string** | The name of the credit applied. It can be the name of the coupon attached to the credit or the initial invoice&#39;s number linked to the credit note. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

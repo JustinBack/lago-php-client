@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group_id** | **string** |  |
-**values** | **object** |  |
+**group_id** | **string** | Unique identifier of a billable metric group, created by Lago. |
+**values** | [**\LagoClient\Model\GroupPropertiesObjectValues**](GroupPropertiesObjectValues.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

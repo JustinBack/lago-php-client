@@ -5,11 +5,11 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**applyAddOn()**](AddOnsApi.md#applyAddOn) | **POST** /applied_add_ons | Apply an add-on to a customer |
-| [**createAddOn()**](AddOnsApi.md#createAddOn) | **POST** /add_ons | Create a new add-on |
+| [**createAddOn()**](AddOnsApi.md#createAddOn) | **POST** /add_ons | Create an add-on |
 | [**destroyAddOn()**](AddOnsApi.md#destroyAddOn) | **DELETE** /add_ons/{code} | Delete an add-on |
-| [**findAddOn()**](AddOnsApi.md#findAddOn) | **GET** /add_ons/{code} | Find add-on by code |
-| [**findAllAddOns()**](AddOnsApi.md#findAllAddOns) | **GET** /add_ons | Find add-ons |
-| [**updateAddOn()**](AddOnsApi.md#updateAddOn) | **PUT** /add_ons/{code} | Update an existing add-on |
+| [**findAddOn()**](AddOnsApi.md#findAddOn) | **GET** /add_ons/{code} | Retrieve an add-on |
+| [**findAllAddOns()**](AddOnsApi.md#findAllAddOns) | **GET** /add_ons | List all add-ons |
+| [**updateAddOn()**](AddOnsApi.md#updateAddOn) | **PUT** /add_ons/{code} | Update an add-on |
 
 
 ## `applyAddOn()`
@@ -75,12 +75,12 @@ try {
 ## `createAddOn()`
 
 ```php
-createAddOn($add_on_input): \LagoClient\Model\AddOn
+createAddOn($add_on_create_input): \LagoClient\Model\AddOn
 ```
 
-Create a new add-on
+Create an add-on
 
-Create a new add-on
+This endpoint is used to create an add-on that can be then attached to a one-off invoice.
 
 ### Example
 
@@ -99,10 +99,10 @@ $apiInstance = new LagoClient\Api\AddOnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$add_on_input = new \LagoClient\Model\AddOnInput(); // \LagoClient\Model\AddOnInput | Add-on payload
+$add_on_create_input = new \LagoClient\Model\AddOnCreateInput(); // \LagoClient\Model\AddOnCreateInput | Add-on payload
 
 try {
-    $result = $apiInstance->createAddOn($add_on_input);
+    $result = $apiInstance->createAddOn($add_on_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddOnsApi->createAddOn: ', $e->getMessage(), PHP_EOL;
@@ -113,7 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **add_on_input** | [**\LagoClient\Model\AddOnInput**](../Model/AddOnInput.md)| Add-on payload | |
+| **add_on_create_input** | [**\LagoClient\Model\AddOnCreateInput**](../Model/AddOnCreateInput.md)| Add-on payload | |
 
 ### Return type
 
@@ -140,7 +140,7 @@ destroyAddOn($code): \LagoClient\Model\AddOn
 
 Delete an add-on
 
-Delete an add-on
+This endpoint is used to delete an existing add-on.
 
 ### Example
 
@@ -159,7 +159,7 @@ $apiInstance = new LagoClient\Api\AddOnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing add-on
+$code = setup_fee; // string | Unique code used to identify the add-on.
 
 try {
     $result = $apiInstance->destroyAddOn($code);
@@ -173,7 +173,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing add-on | |
+| **code** | **string**| Unique code used to identify the add-on. | |
 
 ### Return type
 
@@ -198,9 +198,9 @@ try {
 findAddOn($code): \LagoClient\Model\AddOn
 ```
 
-Find add-on by code
+Retrieve an add-on
 
-Return a single add-on
+This endpoint is used to retrieve a specific add-on.
 
 ### Example
 
@@ -219,7 +219,7 @@ $apiInstance = new LagoClient\Api\AddOnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing add-on
+$code = setup_fee; // string | Unique code used to identify the add-on.
 
 try {
     $result = $apiInstance->findAddOn($code);
@@ -233,7 +233,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing add-on | |
+| **code** | **string**| Unique code used to identify the add-on. | |
 
 ### Return type
 
@@ -255,12 +255,12 @@ try {
 ## `findAllAddOns()`
 
 ```php
-findAllAddOns(): \LagoClient\Model\AddOnsPaginated
+findAllAddOns($page, $per_page): \LagoClient\Model\AddOnsPaginated
 ```
 
-Find add-ons
+List all add-ons
 
-Find all add-ons in certain organisation
+This endpoint is used to list all existing add-ons.
 
 ### Example
 
@@ -279,9 +279,11 @@ $apiInstance = new LagoClient\Api\AddOnsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 
 try {
-    $result = $apiInstance->findAllAddOns();
+    $result = $apiInstance->findAllAddOns($page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddOnsApi->findAllAddOns: ', $e->getMessage(), PHP_EOL;
@@ -290,7 +292,10 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 
 ### Return type
 
@@ -312,12 +317,12 @@ This endpoint does not need any parameter.
 ## `updateAddOn()`
 
 ```php
-updateAddOn($code, $add_on_input): \LagoClient\Model\AddOn
+updateAddOn($code, $add_on_update_input): \LagoClient\Model\AddOn
 ```
 
-Update an existing add-on
+Update an add-on
 
-Update an existing add-on by code
+This endpoint is used to update an existing add-on.
 
 ### Example
 
@@ -336,11 +341,11 @@ $apiInstance = new LagoClient\Api\AddOnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing add-on
-$add_on_input = new \LagoClient\Model\AddOnInput(); // \LagoClient\Model\AddOnInput | Update an existing add-on
+$code = setup_fee; // string | Unique code used to identify the add-on.
+$add_on_update_input = new \LagoClient\Model\AddOnUpdateInput(); // \LagoClient\Model\AddOnUpdateInput | Add-on payload
 
 try {
-    $result = $apiInstance->updateAddOn($code, $add_on_input);
+    $result = $apiInstance->updateAddOn($code, $add_on_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddOnsApi->updateAddOn: ', $e->getMessage(), PHP_EOL;
@@ -351,8 +356,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing add-on | |
-| **add_on_input** | [**\LagoClient\Model\AddOnInput**](../Model/AddOnInput.md)| Update an existing add-on | |
+| **code** | **string**| Unique code used to identify the add-on. | |
+| **add_on_update_input** | [**\LagoClient\Model\AddOnUpdateInput**](../Model/AddOnUpdateInput.md)| Add-on payload | |
 
 ### Return type
 

@@ -4,25 +4,25 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createInvoice()**](InvoicesApi.md#createInvoice) | **POST** /invoices | Create a new invoice |
-| [**downloadInvoice()**](InvoicesApi.md#downloadInvoice) | **POST** /invoices/{id}/download | Download an existing invoice |
-| [**finalizeInvoice()**](InvoicesApi.md#finalizeInvoice) | **PUT** /invoices/{id}/finalize | Finalize a draft invoice |
-| [**findAllInvoices()**](InvoicesApi.md#findAllInvoices) | **GET** /invoices | Find all invoices |
-| [**findInvoice()**](InvoicesApi.md#findInvoice) | **GET** /invoices/{id} | Find invoice by ID |
-| [**refreshInvoice()**](InvoicesApi.md#refreshInvoice) | **PUT** /invoices/{id}/refresh | Refresh a draft invoice |
-| [**retryPayment()**](InvoicesApi.md#retryPayment) | **POST** /invoices/{id}/retry_payment | Retry invoice payment |
-| [**updateInvoice()**](InvoicesApi.md#updateInvoice) | **PUT** /invoices/{id} | Update an existing invoice status |
+| [**createInvoice()**](InvoicesApi.md#createInvoice) | **POST** /invoices | Create a one-off invoice |
+| [**downloadInvoice()**](InvoicesApi.md#downloadInvoice) | **POST** /invoices/{lago_id}/download | Download an invoice PDF |
+| [**finalizeInvoice()**](InvoicesApi.md#finalizeInvoice) | **PUT** /invoices/{lago_id}/finalize | Finalize a draft invoice |
+| [**findAllInvoices()**](InvoicesApi.md#findAllInvoices) | **GET** /invoices | List all invoices |
+| [**findInvoice()**](InvoicesApi.md#findInvoice) | **GET** /invoices/{lago_id} | Retrieve an invoice |
+| [**refreshInvoice()**](InvoicesApi.md#refreshInvoice) | **PUT** /invoices/{lago_id}/refresh | Refresh a draft invoice |
+| [**retryPayment()**](InvoicesApi.md#retryPayment) | **POST** /invoices/{lago_id}/retry_payment | Retry an invoice payment |
+| [**updateInvoice()**](InvoicesApi.md#updateInvoice) | **PUT** /invoices/{lago_id} | Update an invoice |
 
 
 ## `createInvoice()`
 
 ```php
-createInvoice($invoice_one_off_input): \LagoClient\Model\Invoice
+createInvoice($invoice_one_off_create_input): \LagoClient\Model\Invoice
 ```
 
-Create a new invoice
+Create a one-off invoice
 
-Create a new one off Invoice
+This endpoint is used for issuing a one-off invoice.
 
 ### Example
 
@@ -41,10 +41,10 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invoice_one_off_input = new \LagoClient\Model\InvoiceOneOffInput(); // \LagoClient\Model\InvoiceOneOffInput | Invoice payload
+$invoice_one_off_create_input = new \LagoClient\Model\InvoiceOneOffCreateInput(); // \LagoClient\Model\InvoiceOneOffCreateInput | Invoice payload
 
 try {
-    $result = $apiInstance->createInvoice($invoice_one_off_input);
+    $result = $apiInstance->createInvoice($invoice_one_off_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->createInvoice: ', $e->getMessage(), PHP_EOL;
@@ -55,7 +55,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoice_one_off_input** | [**\LagoClient\Model\InvoiceOneOffInput**](../Model/InvoiceOneOffInput.md)| Invoice payload | |
+| **invoice_one_off_create_input** | [**\LagoClient\Model\InvoiceOneOffCreateInput**](../Model/InvoiceOneOffCreateInput.md)| Invoice payload | |
 
 ### Return type
 
@@ -77,12 +77,12 @@ try {
 ## `downloadInvoice()`
 
 ```php
-downloadInvoice($id): \LagoClient\Model\Invoice
+downloadInvoice($lago_id): \LagoClient\Model\Invoice
 ```
 
-Download an existing invoice
+Download an invoice PDF
 
-Download an existing invoice
+This endpoint is used for downloading a specific invoice PDF document.
 
 ### Example
 
@@ -101,10 +101,10 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Invoice
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system.
 
 try {
-    $result = $apiInstance->downloadInvoice($id);
+    $result = $apiInstance->downloadInvoice($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->downloadInvoice: ', $e->getMessage(), PHP_EOL;
@@ -115,7 +115,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Invoice | |
+| **lago_id** | **string**| Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system. | |
 
 ### Return type
 
@@ -137,12 +137,12 @@ try {
 ## `finalizeInvoice()`
 
 ```php
-finalizeInvoice($id): \LagoClient\Model\Invoice
+finalizeInvoice($lago_id): \LagoClient\Model\Invoice
 ```
 
 Finalize a draft invoice
 
-Finalize a draft invoice
+This endpoint is used for finalizing a draft invoice.
 
 ### Example
 
@@ -161,10 +161,10 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the draft Lago Invoice
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system.
 
 try {
-    $result = $apiInstance->finalizeInvoice($id);
+    $result = $apiInstance->finalizeInvoice($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->finalizeInvoice: ', $e->getMessage(), PHP_EOL;
@@ -175,7 +175,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the draft Lago Invoice | |
+| **lago_id** | **string**| Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system. | |
 
 ### Return type
 
@@ -197,12 +197,12 @@ try {
 ## `findAllInvoices()`
 
 ```php
-findAllInvoices($external_customer_id, $issuing_date_from, $issuing_date_to, $status): \LagoClient\Model\InvoicesPaginated
+findAllInvoices($page, $per_page, $external_customer_id, $issuing_date_from, $issuing_date_to, $status, $payment_status): \LagoClient\Model\InvoicesPaginated
 ```
 
-Find all invoices
+List all invoices
 
-Find all invoices in certain organisation
+This endpoint is used for retrievign all invoices.
 
 ### Example
 
@@ -221,13 +221,16 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$external_customer_id = 12345; // string | External customer ID
-$issuing_date_from = Fri Jul 08 00:00:00 UTC 2022; // \DateTime | Date from
-$issuing_date_to = Tue Aug 09 00:00:00 UTC 2022; // \DateTime | Date to
-$status = 'status_example'; // string | Status
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | Unique identifier assigned to the customer in your application.
+$issuing_date_from = Fri Jul 08 00:00:00 UTC 2022; // \DateTime | Filter invoices starting from a specific date.
+$issuing_date_to = Tue Aug 09 00:00:00 UTC 2022; // \DateTime | Filter invoices up to a specific date.
+$status = 'status_example'; // string | Filter invoices by status. Possible values are `draft` or `finalized`.
+$payment_status = 'payment_status_example'; // string | Filter invoices by payment status. Possible values are `pending`, `failed` or `succeeded`.
 
 try {
-    $result = $apiInstance->findAllInvoices($external_customer_id, $issuing_date_from, $issuing_date_to, $status);
+    $result = $apiInstance->findAllInvoices($page, $per_page, $external_customer_id, $issuing_date_from, $issuing_date_to, $status, $payment_status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->findAllInvoices: ', $e->getMessage(), PHP_EOL;
@@ -238,10 +241,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **external_customer_id** | **string**| External customer ID | [optional] |
-| **issuing_date_from** | **\DateTime**| Date from | [optional] |
-| **issuing_date_to** | **\DateTime**| Date to | [optional] |
-| **status** | **string**| Status | [optional] |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
+| **external_customer_id** | **string**| Unique identifier assigned to the customer in your application. | [optional] |
+| **issuing_date_from** | **\DateTime**| Filter invoices starting from a specific date. | [optional] |
+| **issuing_date_to** | **\DateTime**| Filter invoices up to a specific date. | [optional] |
+| **status** | **string**| Filter invoices by status. Possible values are &#x60;draft&#x60; or &#x60;finalized&#x60;. | [optional] |
+| **payment_status** | **string**| Filter invoices by payment status. Possible values are &#x60;pending&#x60;, &#x60;failed&#x60; or &#x60;succeeded&#x60;. | [optional] |
 
 ### Return type
 
@@ -263,12 +269,12 @@ try {
 ## `findInvoice()`
 
 ```php
-findInvoice($id): \LagoClient\Model\Invoice
+findInvoice($lago_id): \LagoClient\Model\Invoice
 ```
 
-Find invoice by ID
+Retrieve an invoice
 
-Return a single invoice
+This endpoint is used for retrieving a specific invoice that has been issued.
 
 ### Example
 
@@ -287,10 +293,10 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Invoice
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system.
 
 try {
-    $result = $apiInstance->findInvoice($id);
+    $result = $apiInstance->findInvoice($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->findInvoice: ', $e->getMessage(), PHP_EOL;
@@ -301,7 +307,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Invoice | |
+| **lago_id** | **string**| Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system. | |
 
 ### Return type
 
@@ -323,12 +329,12 @@ try {
 ## `refreshInvoice()`
 
 ```php
-refreshInvoice($id): \LagoClient\Model\Invoice
+refreshInvoice($lago_id): \LagoClient\Model\Invoice
 ```
 
 Refresh a draft invoice
 
-Refresh a draft invoice
+This endpoint is used for refreshing a draft invoice.
 
 ### Example
 
@@ -347,10 +353,10 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Invoice
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system.
 
 try {
-    $result = $apiInstance->refreshInvoice($id);
+    $result = $apiInstance->refreshInvoice($lago_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->refreshInvoice: ', $e->getMessage(), PHP_EOL;
@@ -361,7 +367,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Invoice | |
+| **lago_id** | **string**| Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system. | |
 
 ### Return type
 
@@ -383,12 +389,12 @@ try {
 ## `retryPayment()`
 
 ```php
-retryPayment($id)
+retryPayment($lago_id)
 ```
 
-Retry invoice payment
+Retry an invoice payment
 
-Retry invoice payment
+This endpoint resends an invoice for collection and retry a payment.
 
 ### Example
 
@@ -407,10 +413,10 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Invoice
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system.
 
 try {
-    $apiInstance->retryPayment($id);
+    $apiInstance->retryPayment($lago_id);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->retryPayment: ', $e->getMessage(), PHP_EOL;
 }
@@ -420,7 +426,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Invoice | |
+| **lago_id** | **string**| Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system. | |
 
 ### Return type
 
@@ -433,7 +439,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -442,12 +448,12 @@ void (empty response body)
 ## `updateInvoice()`
 
 ```php
-updateInvoice($id, $invoice_input): \LagoClient\Model\Invoice
+updateInvoice($lago_id, $invoice_update_input): \LagoClient\Model\Invoice
 ```
 
-Update an existing invoice status
+Update an invoice
 
-Update an existing invoice
+This endpoint is used for updating an existing invoice.
 
 ### Example
 
@@ -466,11 +472,11 @@ $apiInstance = new LagoClient\Api\InvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | ID of the existing Lago Invoice
-$invoice_input = new \LagoClient\Model\InvoiceInput(); // \LagoClient\Model\InvoiceInput | Update an existing invoice
+$lago_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system.
+$invoice_update_input = new \LagoClient\Model\InvoiceUpdateInput(); // \LagoClient\Model\InvoiceUpdateInput | Update an existing invoice
 
 try {
-    $result = $apiInstance->updateInvoice($id, $invoice_input);
+    $result = $apiInstance->updateInvoice($lago_id, $invoice_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->updateInvoice: ', $e->getMessage(), PHP_EOL;
@@ -481,8 +487,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| ID of the existing Lago Invoice | |
-| **invoice_input** | [**\LagoClient\Model\InvoiceInput**](../Model/InvoiceInput.md)| Update an existing invoice | |
+| **lago_id** | **string**| Unique identifier assigned to the invoice within the Lago application. This ID is exclusively created by Lago and serves as a unique identifier for the invoice’s record within the Lago system. | |
+| **invoice_update_input** | [**\LagoClient\Model\InvoiceUpdateInput**](../Model/InvoiceUpdateInput.md)| Update an existing invoice | |
 
 ### Return type
 

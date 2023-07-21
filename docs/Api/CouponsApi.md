@@ -5,12 +5,13 @@ All URIs are relative to https://api.getlago.com/api/v1, except if the operation
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**applyCoupon()**](CouponsApi.md#applyCoupon) | **POST** /applied_coupons | Apply a coupon to a customer |
-| [**createCoupon()**](CouponsApi.md#createCoupon) | **POST** /coupons | Create a new coupon |
+| [**createCoupon()**](CouponsApi.md#createCoupon) | **POST** /coupons | Create a coupon |
+| [**deleteAppliedCoupon()**](CouponsApi.md#deleteAppliedCoupon) | **DELETE** /customers/{external_customer_id}/applied_coupons/{applied_coupon_id} | Delete an applied coupon |
 | [**destroyCoupon()**](CouponsApi.md#destroyCoupon) | **DELETE** /coupons/{code} | Delete a coupon |
-| [**findAllAppliedCoupons()**](CouponsApi.md#findAllAppliedCoupons) | **GET** /applied_coupons | Find Applied Coupons |
-| [**findAllCoupons()**](CouponsApi.md#findAllCoupons) | **GET** /coupons | Find Coupons |
-| [**findCoupon()**](CouponsApi.md#findCoupon) | **GET** /coupons/{code} | Find coupon by code |
-| [**updateCoupon()**](CouponsApi.md#updateCoupon) | **PUT** /coupons/{code} | Update an existing coupon |
+| [**findAllAppliedCoupons()**](CouponsApi.md#findAllAppliedCoupons) | **GET** /applied_coupons | List all applied coupons |
+| [**findAllCoupons()**](CouponsApi.md#findAllCoupons) | **GET** /coupons | List all coupons |
+| [**findCoupon()**](CouponsApi.md#findCoupon) | **GET** /coupons/{code} | Retrieve a coupon |
+| [**updateCoupon()**](CouponsApi.md#updateCoupon) | **PUT** /coupons/{code} | Update a coupon |
 
 
 ## `applyCoupon()`
@@ -21,7 +22,7 @@ applyCoupon($applied_coupon_input): \LagoClient\Model\AppliedCoupon
 
 Apply a coupon to a customer
 
-Apply a coupon to a customer
+This endpoint is used to apply a specific coupon to a customer, before or during a subscription.
 
 ### Example
 
@@ -76,12 +77,12 @@ try {
 ## `createCoupon()`
 
 ```php
-createCoupon($coupon_input): \LagoClient\Model\Coupon
+createCoupon($coupon_create_input): \LagoClient\Model\Coupon
 ```
 
-Create a new coupon
+Create a coupon
 
-Create a new coupon
+This endpoint is used to create a coupon that can be then attached to a customer to create a discount.
 
 ### Example
 
@@ -100,10 +101,10 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$coupon_input = new \LagoClient\Model\CouponInput(); // \LagoClient\Model\CouponInput | Coupon payload
+$coupon_create_input = new \LagoClient\Model\CouponCreateInput(); // \LagoClient\Model\CouponCreateInput | Coupon payload
 
 try {
-    $result = $apiInstance->createCoupon($coupon_input);
+    $result = $apiInstance->createCoupon($coupon_create_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponsApi->createCoupon: ', $e->getMessage(), PHP_EOL;
@@ -114,7 +115,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **coupon_input** | [**\LagoClient\Model\CouponInput**](../Model/CouponInput.md)| Coupon payload | |
+| **coupon_create_input** | [**\LagoClient\Model\CouponCreateInput**](../Model/CouponCreateInput.md)| Coupon payload | |
 
 ### Return type
 
@@ -133,15 +134,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `destroyCoupon()`
+## `deleteAppliedCoupon()`
 
 ```php
-destroyCoupon($code): \LagoClient\Model\Coupon
+deleteAppliedCoupon($external_customer_id, $applied_coupon_id): \LagoClient\Model\AppliedCoupon
 ```
 
-Delete a coupon
+Delete an applied coupon
 
-Delete a coupon
+This endpoint is used to delete a specific coupon that has been applied to a customer.
 
 ### Example
 
@@ -160,7 +161,69 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing coupon
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | The customer external unique identifier (provided by your own application)
+$applied_coupon_id = 1a901a90-1a90-1a90-1a90-1a901a901a90; // string | Unique identifier of the applied coupon, created by Lago.
+
+try {
+    $result = $apiInstance->deleteAppliedCoupon($external_customer_id, $applied_coupon_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponsApi->deleteAppliedCoupon: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **external_customer_id** | **string**| The customer external unique identifier (provided by your own application) | |
+| **applied_coupon_id** | **string**| Unique identifier of the applied coupon, created by Lago. | |
+
+### Return type
+
+[**\LagoClient\Model\AppliedCoupon**](../Model/AppliedCoupon.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `destroyCoupon()`
+
+```php
+destroyCoupon($code): \LagoClient\Model\Coupon
+```
+
+Delete a coupon
+
+This endpoint is used to delete a coupon.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = LagoClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LagoClient\Api\CouponsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$code = startup_deal; // string | Unique code used to identify the coupon.
 
 try {
     $result = $apiInstance->destroyCoupon($code);
@@ -174,7 +237,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing coupon | |
+| **code** | **string**| Unique code used to identify the coupon. | |
 
 ### Return type
 
@@ -196,12 +259,12 @@ try {
 ## `findAllAppliedCoupons()`
 
 ```php
-findAllAppliedCoupons($status, $external_customer_id): \LagoClient\Model\AppliedCouponsPaginated
+findAllAppliedCoupons($page, $per_page, $status, $external_customer_id): \LagoClient\Model\AppliedCouponsPaginated
 ```
 
-Find Applied Coupons
+List all applied coupons
 
-Find all applied coupons
+This endpoint is used to list all applied coupons. You can filter by coupon status and by customer.
 
 ### Example
 
@@ -220,11 +283,13 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$status = 'status_example'; // string | Applied coupon status
-$external_customer_id = 12345; // string | External customer ID
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
+$status = active; // string | The status of the coupon. Can be either `active` or `terminated`.
+$external_customer_id = 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba; // string | The customer external unique identifier (provided by your own application)
 
 try {
-    $result = $apiInstance->findAllAppliedCoupons($status, $external_customer_id);
+    $result = $apiInstance->findAllAppliedCoupons($page, $per_page, $status, $external_customer_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponsApi->findAllAppliedCoupons: ', $e->getMessage(), PHP_EOL;
@@ -235,8 +300,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **status** | **string**| Applied coupon status | [optional] |
-| **external_customer_id** | **string**| External customer ID | [optional] |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
+| **status** | **string**| The status of the coupon. Can be either &#x60;active&#x60; or &#x60;terminated&#x60;. | [optional] |
+| **external_customer_id** | **string**| The customer external unique identifier (provided by your own application) | [optional] |
 
 ### Return type
 
@@ -258,12 +325,12 @@ try {
 ## `findAllCoupons()`
 
 ```php
-findAllCoupons(): \LagoClient\Model\CouponsPaginated
+findAllCoupons($page, $per_page): \LagoClient\Model\CouponsPaginated
 ```
 
-Find Coupons
+List all coupons
 
-Find all coupons in certain organisation
+This endpoint is used to list all existing coupons.
 
 ### Example
 
@@ -282,9 +349,11 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$page = 1; // int | Page number.
+$per_page = 20; // int | Number of records per page.
 
 try {
-    $result = $apiInstance->findAllCoupons();
+    $result = $apiInstance->findAllCoupons($page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponsApi->findAllCoupons: ', $e->getMessage(), PHP_EOL;
@@ -293,7 +362,10 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page number. | [optional] |
+| **per_page** | **int**| Number of records per page. | [optional] |
 
 ### Return type
 
@@ -318,9 +390,9 @@ This endpoint does not need any parameter.
 findCoupon($code): \LagoClient\Model\Coupon
 ```
 
-Find coupon by code
+Retrieve a coupon
 
-Return a single coupon
+This endpoint is used to retrieve a specific coupon.
 
 ### Example
 
@@ -339,7 +411,7 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing coupon
+$code = startup_deal; // string | Unique code used to identify the coupon.
 
 try {
     $result = $apiInstance->findCoupon($code);
@@ -353,7 +425,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing coupon | |
+| **code** | **string**| Unique code used to identify the coupon. | |
 
 ### Return type
 
@@ -375,12 +447,12 @@ try {
 ## `updateCoupon()`
 
 ```php
-updateCoupon($code, $coupon_input): \LagoClient\Model\Coupon
+updateCoupon($code, $coupon_update_input): \LagoClient\Model\Coupon
 ```
 
-Update an existing coupon
+Update a coupon
 
-Update an existing coupon by code
+This endpoint is used to update a coupon that can be then attached to a customer to create a discount.
 
 ### Example
 
@@ -399,11 +471,11 @@ $apiInstance = new LagoClient\Api\CouponsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$code = example_code; // string | Code of the existing coupon
-$coupon_input = new \LagoClient\Model\CouponInput(); // \LagoClient\Model\CouponInput | Update an existing coupon
+$code = startup_deal; // string | Unique code used to identify the coupon.
+$coupon_update_input = new \LagoClient\Model\CouponUpdateInput(); // \LagoClient\Model\CouponUpdateInput | Coupon payload
 
 try {
-    $result = $apiInstance->updateCoupon($code, $coupon_input);
+    $result = $apiInstance->updateCoupon($code, $coupon_update_input);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponsApi->updateCoupon: ', $e->getMessage(), PHP_EOL;
@@ -414,8 +486,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Code of the existing coupon | |
-| **coupon_input** | [**\LagoClient\Model\CouponInput**](../Model/CouponInput.md)| Update an existing coupon | |
+| **code** | **string**| Unique code used to identify the coupon. | |
+| **coupon_update_input** | [**\LagoClient\Model\CouponUpdateInput**](../Model/CouponUpdateInput.md)| Coupon payload | |
 
 ### Return type
 
